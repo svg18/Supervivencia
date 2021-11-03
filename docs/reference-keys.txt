@@ -1,13 +1,9 @@
-fig:two-example-survival-functions
-fig:survival-actuar-example
-eq:cox-covariables-linear
 datos-censurados
 censura-por-la-derecha-tipo-i
 censura-por-la-derecha-tipo-ii
 censura-por-la-derecha-tipo-iii
 censura-por-la-izquierda
 censura-por-intervalos
-datos-truncados
 funciones-para-el-análisis-de-supervivencia
 función-de-supervivencia
 RiskFunction
