@@ -15,7 +15,7 @@ biblio-style: apalike
 link-citations: yes
 css: styles.css
 github-repo: svg18/Supervivencia
-url:'https\://github.com/svg18/Libro-Supervivencia'
+url: 'https\://github.com/svg18/Libro-Supervivencia'
 description: "Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México"
 always_allow_html: true
 ---
@@ -30,7 +30,7 @@ source("functions.R")
 library(patchwork)
 library(latex2exp)
 library(shape)
-library(futurevisions)
+#library(futurevisions)
 library("actuar")
 library(knitr)
 library(kableExtra)
