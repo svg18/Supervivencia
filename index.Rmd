@@ -2,8 +2,8 @@
 title: "Modelos de Supervivencia"
 author:
   - "Sofía Villers Gómez"
-  - "David Alberto Mateos Montes de Oca"
   - "Carlos Fernando Vásquez Guerra"
+  - "David Alberto Mateos Montes de Oca"
   - "Luis Angel Ramirez Teodoro"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
