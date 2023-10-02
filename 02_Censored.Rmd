@@ -94,3 +94,19 @@ Un número grande de individuos sanos fueron enrolados en un estudio que inicio 
 2. Individuo sano, enrolado en el estudio con 40 años de edad, se le diagnosticó cáncer de mama en el quinto examen clínico.
 3. Individuo sano, enrolado con 50 años de edad, murió a los 63 años por paro cardíaco.
 4. Individuo con cáncer de piel en remisión.
+
+## Ejercicios
+1. El análisis de supervivencia es un conjunto de procedimientos estadísticos para el cual la variable "respuesta" o de interés es dicotómica.
+a. Cierto, la variable que nos interesa es: ocurre la falla/evento o no
+b. Falso, la variable de interés es "tiempo hasta la ocurrencia del evento" la cual es continua
+c. El enunciado no tiene sentido, hay más de una variable de interés, por ejemplo: género, edad e incluso la distribución asociada.
+2. Si un estudio termina antes de que un individuo desarrolle la falla, entonces su supervivencia está censurada.
+a. Cierto, se trata de una censura tipo I
+b. Un estudio no puede terminar si no fallaron todos los individuos
+c. Falso, es truncada porque t < U, donde t es el tiempo del estudio y U es el tiempo de falla
+d. No se puede concluir, hace falta conocer las características estudio
+3. Una empresa encargada del transporte de frutas via mar ́ıtima a mercados internacionales desea medir el tiempo de maduración de los aguacates para poder asegurar que estos lleguen en  ́optimo estado a su destino. La empresa tiene 3 diferentes propuestas para realizar este estudio. Se deben analizar las tres propuestas en función del tipo de censura y/o truncamiento que presentar ́an los datos recolectados para con ello escoger la mejor propuesta.
+a. El estudio 1 propone tomar la medición inicial del nivel de maduración en el momento en que se cargan los aguacates en el barco y una segunda medición al llegar al puerto de destino
+b. El estudio 2 propone tomar la medición inicial del nivel de maduración en el momento de corte de la fruta con los agricultores, una segunda medición al entrar en la cámara de refrigeración en el barco, después tomar mediciones cada cinco dias hasta llegar al destino, en donde se toma una medición final
+c. El estudio 3 propone replicar las condiciones del transporte en una cámara frigorífica en el puerto de salida. Al llegar los aguacates al puerto se relaiza una selección de los 1000 menos maduros, estos se introducen en el frigorífico y se tomarán mediciones de la maduración diario por un periódo de 30 dias.
+Después de analizar las propuestas, diga que estudio propondría a la empresa llevar a cabo y por que.

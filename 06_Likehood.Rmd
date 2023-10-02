@@ -257,4 +257,26 @@ La expresión anterior es una ecuación *no lineal* de $\hat \gamma$, cuya soluc
 
 Ecuaciones *no lineales*, como hemos visto en el modelo *Weibull*, aparecen en la estimación de parámetros de las distribuciones *Log-Normal*, *Log-Logística* y *Gamma*; resulta que, al considerar datos con censura y truncamiento, las estimaciones se complican en los modelos paramétricos. No obstante, tenemos ayuda de las computadoras y software que nos permitirán realizar estimaciones adecuadas.
 
+## Ejercicios
+
+1. El tiempo de vida en años de una batería de marca paso sigue una
+distribución $Pareto$ centrada con parámetros $\theta=4$, $\lambda=5$
+a) ¿Cuál es la probabilidad de que la batería funcione por lo menos 10 años?
+b) ¿Cuál es el tiempo de vida medio de la batería?
+c) Encontrar el tiempo de reemplazo $t_{r}$ para el cual 90\% de las
+baterías no hayan fallado.
+
+2. El tiempo de vida (en años) $X$ de una bacteria que se encuentra en el lago "Gran Ojo" sigue una distribución "mezcla". Calcule la probabilidad de que el tiempo de vida de la bacteria sea menor a 200 años.
+
+a) Con probabilidad 0.8, $X$ tiene una distribución $Pareto$ centrada con parámetros $\alpha=2$ y $\theta=100.$
+b) Con probabilidad 0.2, $X$ tiene una distribución $Pareto$ centrada con parámetros $\alpha=4$ y $\theta=3000.$
+
+3. Considere una distribución Weibull cuya función de de supervivencia está dada por $S(x)=exp(-\lambda x^\alpha)$ con $\lambda>0$ y $\alpha>0$. Encuentre la función de verosimilitud bajo los siguientes casos: 
+
+a) Datos truncados por la izquierda $(y_{l_i},x_i)$, $y_{l_i}\leq x_i$, $i=1,\dots,n$ donde $y_{l_i}$ es un tiempo de truncamiento por la izquierda (simplifique la expresión).
+b) Datos censurados por intervalos $(L_i, R_i)$, $i=1,\dots,n$.
+c) Datos doblemente truncados $(y_{l_i},x_i,y_{r_i})$, donde $y_{l_i}\leq x_i\leq y_{r_i}$, $i=1,\dots,n$ (simplifique la expresión).
+d) n = 4 pacientes cuya edad de ocurrencia del evento son los siguientes intervalos $(90,120]$, $(110,115]$, $(80,100]$, $(70,75]$, sujetos a la condición de entrada $edad\geq 50$.
+
+
 [^6.1]: De primera vista, pareciera que la segunda igualdad de la expresión anterior es incorrecta y que debería ser $\prod_{i=1}^{n}\left\{h(t_{i})\right\}^{\delta_{i}}\left\{\frac{S(t_{i})}{S(u_{i})}\right\}^{1-\delta_i}$ lo cual no es correcto. Se recomienda desarrollar la primera igualdad y relacionar lo necesario para obtener $h(t_i)$.
