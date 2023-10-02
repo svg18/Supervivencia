@@ -5,23 +5,23 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 7 Modelos No Paramétricos para la Función de Supervivencia | Modelos de Supervivencia</title>
-  <meta name="description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
-  <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
+  <meta name="description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 7 Modelos No Paramétricos para la Función de Supervivencia | Modelos de Supervivencia" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
   
-  <meta property="og:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
-  <meta name="github-repo" content="CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
+  <meta property="og:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="github-repo" content="svg18/Supervivencia" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Capítulo 7 Modelos No Paramétricos para la Función de Supervivencia | Modelos de Supervivencia" />
   
-  <meta name="twitter:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="twitter:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
 
 <meta name="author" content="Sofía Villers Gómez" />
+<meta name="author" content="David Alberto Mateos Montes de Oca" />
 <meta name="author" content="Carlos Fernando Vásquez Guerra" />
 <meta name="author" content="Luis Angel Ramirez Teodoro" />
 
@@ -34,8 +34,8 @@
   
 <link rel="prev" href="la-función-de-verosimilitud-con-censura-y-truncamiento.html"/>
 <link rel="next" href="algunas-estimaciones-sobre-modelos-no-paramétricos.html"/>
-<script src="libs/header-attrs-2.6.4/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,9 +51,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
@@ -63,6 +63,32 @@
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -98,7 +124,10 @@
 <li class="chapter" data-level="1.4" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-izquierda"><i class="fa fa-check"></i><b>1.4</b> Censura por la Izquierda</a></li>
 <li class="chapter" data-level="1.5" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-intervalos"><i class="fa fa-check"></i><b>1.5</b> Censura por Intervalos</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="datos-truncados.html"><a href="datos-truncados.html"><i class="fa fa-check"></i><b>2</b> Datos Truncados</a></li>
+<li class="chapter" data-level="2" data-path="datos-truncados.html"><a href="datos-truncados.html"><i class="fa fa-check"></i><b>2</b> Datos Truncados</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="datos-truncados.html"><a href="datos-truncados.html#ejercicios"><i class="fa fa-check"></i><b>2.1</b> Ejercicios</a></li>
+</ul></li>
 <li class="part"><span><b>II Estudio paramétrico</b></span></li>
 <li class="chapter" data-level="3" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html"><i class="fa fa-check"></i><b>3</b> Funciones para el Análisis de Supervivencia</a>
 <ul>
@@ -140,6 +169,7 @@
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-6"><i class="fa fa-check"></i>Caso continuo</a></li>
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-6"><i class="fa fa-check"></i>Caso discreto</a></li>
 </ul></li>
+<li class="chapter" data-level="4.5" data-path="par-poblacionales.html"><a href="par-poblacionales.html#ejercicios-1"><i class="fa fa-check"></i><b>4.5</b> Ejercicios</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html"><i class="fa fa-check"></i><b>5</b> Modelos Paramétricos</a>
 <ul>
@@ -163,6 +193,7 @@
 <li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-exponencial-1"><i class="fa fa-check"></i>Modelo Exponencial</a></li>
 <li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-weibull-1"><i class="fa fa-check"></i>Modelo Weibull</a></li>
 </ul></li>
+<li class="chapter" data-level="6.8" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#ejercicios-2"><i class="fa fa-check"></i><b>6.8</b> Ejercicios</a></li>
 </ul></li>
 <li class="part"><span><b>III Estudio no paramétrico</b></span></li>
 <li class="chapter" data-level="7" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><i class="fa fa-check"></i><b>7</b> Modelos No Paramétricos para la Función de Supervivencia</a>
@@ -230,8 +261,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="modelos-no-paramétricos-para-la-función-de-supervivencia" class="section level1" number="7">
-<h1><span class="header-section-number">Capítulo 7</span> Modelos No Paramétricos para la Función de Supervivencia</h1>
+<div id="modelos-no-paramétricos-para-la-función-de-supervivencia" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Capítulo 7</span> Modelos No Paramétricos para la Función de Supervivencia<a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#modelos-no-paramétricos-para-la-función-de-supervivencia" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Los métodos estadísticos más utilizados en el análisis de supervivencia son los <em>No Paramétricos</em>. Debido a que sólo cuando se conoce la distribución que siguen los tiempos de falla, las estimaciones con métodos paramétricos será adecuada. La eficiencia de los métodos no paramétricos radica en que los datos no sigan una distribución teórica.</p>
 <p>Puesto que nuestro interés es estimar <span class="math inline">\(S(t)\)</span>, en los métodos no paramétricos las curvas de supervivencia, por lo general, se producen usando uno de dos métodos: el <strong>análisis actuarial</strong> o el <strong>método límite-producto de Kaplan-Meier</strong>.</p>
 <p>Es importante mencionar que, cuando <strong>no</strong> hay datos censurados podemos estimar <span class="math inline">\(S(t)\)</span> de manera sencilla mediante la función empírica:</p>
@@ -241,8 +272,8 @@
 <p>donde la muestra aleatoria es: <span class="math inline">\(t_{(1)}\leq t_{(2)}\leq...\leq t_{(n)}\)</span>.</p>
 <p>En este caso, la función será escalonada con decrementos <span class="math inline">\(\frac{1}{n}\)</span> si todas las observaciones son distintas, o con decrementos <span class="math inline">\(\frac{d}{n}\)</span> si hay <span class="math inline">\(d\)</span> tiempos de falla iguales a <span class="math inline">\(t\)</span>.</p>
 <p>Los métodos que se presentan a continuación incluyen la percepción del censuramiento en los datos; quizá el alumno está familiarizado con alguno de ellos, pues se estudian en cursos previos.</p>
-<div id="método-actuarial-tabla-de-vida" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Método Actuarial (Tabla de Vida)</h2>
+<div id="método-actuarial-tabla-de-vida" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Método Actuarial (Tabla de Vida)<a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#método-actuarial-tabla-de-vida" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>El análisis actuarial divide el tiempo en intervalos y calcula la supervivencia en cada intervalo. La longitud del intervalo depende de la frecuencia con que ocurre el suceso de interés.</p>
 <p>Se asume que:</p>
 <ul>
@@ -285,9 +316,9 @@ S_{j} = p_{1}p_{2}...p_{j}
 <p><span class="math display">\[
 \hat S_j=\prod_{i=1}^{j}\left(1-\frac{d_{i}}{n_{i}-\frac{c_{i}}{2}}\right)
 \]</span></p>
-<div id="ejemplo-9" class="section level4 unnumbered">
-<h4>Ejemplo</h4>
-<p>El siguiente ejemplo es tomado del libro <span class="citation">(Collett <a href="#ref-collett2015modelling" role="doc-biblioref">2015</a>)</span>, ejemplo 1.3 :</p>
+<div id="ejemplo-9" class="section level4 unnumbered hasAnchor">
+<h4>Ejemplo<a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#ejemplo-9" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>El siguiente ejemplo es tomado del libro <span class="citation">(<a href="#ref-collett2015modelling">Collett 2015</a>)</span>, ejemplo 1.3 :</p>
 <p>Supervivencia de pacientes con myeloma múltiple.</p>
 <p>Myeloma múltiple es una enfermedad caracterizada por la acumulación múltiple de células plasmáticas anormales, un tipo de células blancas de la sangre, en la médula ósea. La proliferación de las células plasmáticas anormales dentro de los huesos causa dolor y la destrucción del tejido óseo. El objetivo de un estudio realizado en el Centro Médico de la Universidad del Oeste de Virginia, USA, fue examinar la asociación entre los valores de ciertas variables explicativas(covariables) y el tiempo de supervivencia de los pacientes. En el estudio, el tiempo de supervivencia fue medido en meses, desde el diagnóstico hasta la muerte por myeloma múltiple.</p>
 <p>La siguiente tabla muestra un <strong>fragmento</strong> de los resultados obtenidos en el estudio. En ésta se relaciona a un total de 48 pacientes, todos ellos estaban entre los 50 y 80 años. Algunos de estos pacientes no habían muerto durante el tiempo que el estudio fue completado, por lo que estos individuos contribuyeron con tiempos censurados por la derecha. La codificación del estatus de supervivencia de un individuo en la tabla es codificado con un <span class="math inline">\(0\)</span> si la observación es censurada y <span class="math inline">\(1\)</span> si fue muerte por myeloma.</p>
@@ -1163,7 +1194,7 @@ Time period
 </tbody>
 </table>
 <p>Y la curva de supervivencia es la dada en la figura <a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#fig:survival-actuar-example">7.1</a>:</p>
-<div class="figure" style="text-align: center"><span id="fig:survival-actuar-example"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:survival-actuar-example"></span>
 <img src="_main_files/figure-html/survival-actuar-example-1.png" alt="Supervivencia estimada para los pacientes con myeloma múltiple con el método actuarial" width="672" />
 <p class="caption">
 Figura 7.1: Supervivencia estimada para los pacientes con myeloma múltiple con el método actuarial
@@ -1171,8 +1202,8 @@ Figura 7.1: Supervivencia estimada para los pacientes con myeloma múltiple con 
 </div>
 </div>
 </div>
-<div id="estimador-producto-límite-kaplan-meier" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Estimador Producto-Límite (Kaplan-Meier)</h2>
+<div id="estimador-producto-límite-kaplan-meier" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Estimador Producto-Límite (Kaplan-Meier)<a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#estimador-producto-límite-kaplan-meier" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>El estimador producto-límite fue propuesto por Kaplan y Meier en 1958 como el estimador máximo-verosímil de la función de supervivencia.</p>
 <p>El método de Kaplan-Meier calcula la supervivencia cada vez que un paciente muere. Da proporciones exactas de supervivencia debido a que utiliza tiempos de supervivencia precisos.</p>
 <p>La característica distintiva del análisis con este método, es que la proporción acumulada que sobrevive se calcula para el tiempo de supervivencia individual de cada paciente, en contraste con la agrupación de los tiempos de supervivencia en intervalos hechos en la tabla de vida. Por esta razón es especialmente útil para estudios que utilizan un número pequeño de pacientes.</p>
@@ -1181,8 +1212,8 @@ Figura 7.1: Supervivencia estimada para los pacientes con myeloma múltiple con 
 <li>Las personas que se retiran del estudio tienen un destino parecido a las que se quedan.</li>
 <li>El periodo de tiempo durante el cual una persona entra en el estudio no tiene efecto independiente en la respuesta.</li>
 </ul>
-<div id="construcción-del-estimador-k-m" class="section level3" number="7.2.1">
-<h3><span class="header-section-number">7.2.1</span> Construcción del Estimador K-M</h3>
+<div id="construcción-del-estimador-k-m" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Construcción del Estimador K-M<a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#construcción-del-estimador-k-m" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Es natural pensar a <span class="math inline">\(T\)</span> como una variable aleatoria continua, y por tanto, teóricamente no es posible tener observaciones iguales. No obstante, en la práctica los tiempos de supervivencia son medidos en escalas como: días, meses, años, etcétera; por lo que, hay posibilidad de tener observaciones repetidas. Por esta razón conviene modelar a <span class="math inline">\(T\)</span> como una variable aleatoria discreta. La idea del estimador <em>K-M</em> es la siguiente:</p>
 <p>Sea <span class="math inline">\(T_{1}, T_{2},...,T_{n}\)</span> una m.a. de una población discreta con soporte en <span class="math inline">\(\{u_{1}, u_{2},...\}\)</span>.</p>
 <p>La muestra observada de <span class="math inline">\(T\)</span> se puede representar como <span class="math inline">\((t_{i},\delta_{i})\)</span> para <span class="math inline">\(i=1,2,...,n\)</span> donde:</p>
@@ -1195,8 +1226,8 @@ Figura 7.1: Supervivencia estimada para los pacientes con myeloma múltiple con 
 \right.
 \]</span>
 Entonces la función de verosimilitud será:</p>
-<p><span class="math display">\[ 
-\mathscr{L} = \prod^{n}_{i=1}f(t_{i})^{\delta_{i}}S(t_{i})^{1-\delta_{i}} 
+<p><span class="math display">\[
+\mathscr{L} = \prod^{n}_{i=1}f(t_{i})^{\delta_{i}}S(t_{i})^{1-\delta_{i}}
 \]</span></p>
 <p>Desarrollando la expresión anterior tenemos</p>
 <p><span class="math display">\[
@@ -1205,8 +1236,8 @@ Entonces la función de verosimilitud será:</p>
 <p>Sea</p>
 <p><span class="math display">\[
 \begin{split}
- &amp; d_{k} = \sum_{i=1}^{n}\mathbb{1}_{(t_{i}=u_{k},\delta_{i}=1)} \mbox{  (numero de tiempos de fallo iguales a }u_{k}) \\
- &amp; n_{k} = \sum_{i=1}^{n}\mathbb{1}_{(t_{i}\geq{u_{k}})} \mbox{ (numero de individuos en riesgo al tiempo } u_{k})
+&amp; d_{k} = \sum_{i=1}^{n}\mathbb{1}_{(t_{i}=u_{k},\delta_{i}=1)} \mbox{  (numero de tiempos de fallo iguales a }u_{k}) \\
+&amp; n_{k} = \sum_{i=1}^{n}\mathbb{1}_{(t_{i}\geq{u_{k}})} \mbox{ (numero de individuos en riesgo al tiempo } u_{k})
 \end{split}
 \]</span></p>
 <p><span class="math display">\[
@@ -1214,7 +1245,7 @@ Entonces la función de verosimilitud será:</p>
 \]</span></p>
 <p>Ahora maximizamos la función de verosimilitud para <span class="math inline">\(h(u_k)\)</span>:</p>
 <p><span class="math display">\[
-\ln (\mathscr{L}) = \sum_{k}\{d_{k} \ln(h(u_{k}))+(n_{k}-d_{k}) \ln(1-h(u_{k}))\} 
+\ln (\mathscr{L}) = \sum_{k}\{d_{k} \ln(h(u_{k}))+(n_{k}-d_{k}) \ln(1-h(u_{k}))\}
 \]</span></p>
 <p><span class="math display">\[
 \Longrightarrow \frac{\partial \ln (\mathscr{L})}{\partial h(u_{k})} = \frac{d_{k}}{h(u_{k})}-\frac{(n_{k}-d_{k})}{(1-h(u_{k}))} = 0
@@ -1229,8 +1260,8 @@ Entonces la función de verosimilitud será:</p>
 \]</span></p>
 <p>Y es así es como se deriva el estimador <em>K-M</em>.</p>
 <p><strong>Proposición:</strong> <span class="math inline">\(\mathbb{E}[\hat{h}(u_k)] =h(u_k)\)</span> (Insesgamiento).</p>
-<div id="ejemplo-10" class="section level4 unnumbered">
-<h4>Ejemplo</h4>
+<div id="ejemplo-10" class="section level4 unnumbered hasAnchor">
+<h4>Ejemplo<a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#ejemplo-10" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Se obtuvieron los tiempos de remisión de 20 pacientes con osteosarcoma, a los que se trataba con 3 meses de quimioterapia después de amputación.</p>
 <ul>
 <li>11 pacientes recayeron a los 6, 8, 10, 11, 12, 13, 13, 22, 32, 34 y 36 meses.</li>
@@ -1465,10 +1496,10 @@ time
 </tbody>
 </table>
 <p>Y la gráfica de <span class="math inline">\(\hat S(t)\)</span> es:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-25-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="ejercicio" class="section level4 unnumbered">
-<h4>Ejercicio</h4>
+<div id="ejercicio" class="section level4 unnumbered hasAnchor">
+<h4>Ejercicio<a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#ejercicio" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Suponga que disponemos de los datos de supervivencia de 10 pacientes que han sido aleatoriamente asignados a los tratamientos A y B.</p>
 <ul>
 <li>A: 3, 5, 7, 9+, 18</li>
@@ -1481,9 +1512,9 @@ time
 </div>
 </div>
 <h3>References</h3>
-<div id="refs" class="references hanging-indent">
-<div id="ref-collett2015modelling">
-<p>Collett, David. 2015. <em>Modelling Survival Data in Medical Research</em>. CRC press.</p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-collett2015modelling" class="csl-entry">
+Collett, David. 2015. <em>Modelling Survival Data in Medical Research</em>. CRC press.
 </div>
 </div>
             </section>
@@ -1496,7 +1527,6 @@ time
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1515,6 +1545,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "github", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -1535,6 +1566,10 @@ gitbook.start({
 "text": null
 },
 "download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }
@@ -1548,7 +1583,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

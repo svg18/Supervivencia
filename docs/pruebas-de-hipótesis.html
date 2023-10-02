@@ -5,23 +5,23 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 9 Pruebas de Hipótesis | Modelos de Supervivencia</title>
-  <meta name="description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
-  <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
+  <meta name="description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 9 Pruebas de Hipótesis | Modelos de Supervivencia" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
   
-  <meta property="og:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
-  <meta name="github-repo" content="CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
+  <meta property="og:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="github-repo" content="svg18/Supervivencia" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Capítulo 9 Pruebas de Hipótesis | Modelos de Supervivencia" />
   
-  <meta name="twitter:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="twitter:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
 
 <meta name="author" content="Sofía Villers Gómez" />
+<meta name="author" content="David Alberto Mateos Montes de Oca" />
 <meta name="author" content="Carlos Fernando Vásquez Guerra" />
 <meta name="author" content="Luis Angel Ramirez Teodoro" />
 
@@ -34,8 +34,8 @@
   
 <link rel="prev" href="algunas-estimaciones-sobre-modelos-no-paramétricos.html"/>
 <link rel="next" href="modelo-de-riesgos-proporcionales.html"/>
-<script src="libs/header-attrs-2.6.4/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,9 +51,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
@@ -63,6 +63,32 @@
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -98,7 +124,10 @@
 <li class="chapter" data-level="1.4" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-izquierda"><i class="fa fa-check"></i><b>1.4</b> Censura por la Izquierda</a></li>
 <li class="chapter" data-level="1.5" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-intervalos"><i class="fa fa-check"></i><b>1.5</b> Censura por Intervalos</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="datos-truncados.html"><a href="datos-truncados.html"><i class="fa fa-check"></i><b>2</b> Datos Truncados</a></li>
+<li class="chapter" data-level="2" data-path="datos-truncados.html"><a href="datos-truncados.html"><i class="fa fa-check"></i><b>2</b> Datos Truncados</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="datos-truncados.html"><a href="datos-truncados.html#ejercicios"><i class="fa fa-check"></i><b>2.1</b> Ejercicios</a></li>
+</ul></li>
 <li class="part"><span><b>II Estudio paramétrico</b></span></li>
 <li class="chapter" data-level="3" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html"><i class="fa fa-check"></i><b>3</b> Funciones para el Análisis de Supervivencia</a>
 <ul>
@@ -140,6 +169,7 @@
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-6"><i class="fa fa-check"></i>Caso continuo</a></li>
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-6"><i class="fa fa-check"></i>Caso discreto</a></li>
 </ul></li>
+<li class="chapter" data-level="4.5" data-path="par-poblacionales.html"><a href="par-poblacionales.html#ejercicios-1"><i class="fa fa-check"></i><b>4.5</b> Ejercicios</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html"><i class="fa fa-check"></i><b>5</b> Modelos Paramétricos</a>
 <ul>
@@ -163,6 +193,7 @@
 <li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-exponencial-1"><i class="fa fa-check"></i>Modelo Exponencial</a></li>
 <li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-weibull-1"><i class="fa fa-check"></i>Modelo Weibull</a></li>
 </ul></li>
+<li class="chapter" data-level="6.8" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#ejercicios-2"><i class="fa fa-check"></i><b>6.8</b> Ejercicios</a></li>
 </ul></li>
 <li class="part"><span><b>III Estudio no paramétrico</b></span></li>
 <li class="chapter" data-level="7" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><i class="fa fa-check"></i><b>7</b> Modelos No Paramétricos para la Función de Supervivencia</a>
@@ -230,13 +261,13 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pruebas-de-hipótesis" class="section level1" number="9">
-<h1><span class="header-section-number">Capítulo 9</span> Pruebas de Hipótesis</h1>
+<div id="pruebas-de-hipótesis" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Capítulo 9</span> Pruebas de Hipótesis<a href="pruebas-de-hipótesis.html#pruebas-de-hipótesis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Las pruebas de hipótesis juegan un papel importante en la inferencia estadística. En el contexto del análisis de supervivencia, resulta primordial comparar poblaciones en cuanto a sus funciones de supervivencia, pues de ello podemos saber, por ejemplo, la <em>eficacia</em> de un tratamiento respecto a otro, los tiempos de aparición de un tumor en dos grupos, entre otras cosas.</p>
 <p>El objetivo de la comparación de poblaciones en el análisis de supervivencia es similar a aquellos procedimientos diseñados para comparar estadísticos provenientes de muestras independientes, como la <em>prueba t</em>, la <em>prueba de los signos</em>, la <em>prueba U de Mann-Whitney</em>(1947), la <em>prueba de Kruskal-Wallis</em>(1952), etcétera. Todas estas pruebas de comparación se utilizan para evaluar diferencias entre estadísticos que han sido estimados basados en la información que se obtiene de subgrupos poblacionales independientes entre si. No obstante, dichas pruebas <strong>no consideran la censura</strong> en los datos, y por esta razón se imposibilita su aplicación “directa” en datos de supervivencia.</p>
 <p>Las pruebas más utilizadas para comparar funciones de supervivencia, las cuales consideran la censura en los datos, son: la <em>prueba Log-Rank</em> propuesta por Mantel-Haenszel(1959), la <em>prueba generalizada de Wilcoxon</em> propuesta por Gehan(1965), la <em>prueba de Peto-Peto</em>(1972), la <em>prueba de Tarone-Ware</em>(1977), la <em>prueba de Harrington-Fleming</em>(1982) que generaliza parte de las pruebas anteriores y una versión más general propuesta por Fleming et al. (1987). En esta sección veremos la prueba de <em>Log-Rank</em> y la prueba generalizada de <em>Wilcoxon</em>, que esencialmente son la misma salvo una ponderación.</p>
-<div id="comparación-de-1-población" class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> Comparación de 1 población</h2>
+<div id="comparación-de-1-población" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Comparación de 1 población<a href="pruebas-de-hipótesis.html#comparación-de-1-población" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Suponiendo que la tasa de riesgo real en la población estudiada es <span class="math inline">\(h(t)\)</span>, el objetivo en esta prueba es determinar, estadisticamente, si la tasa de riesgo <span class="math inline">\(h_0(t)\)</span>, la cual está completamente especificado en el intervalo <span class="math inline">\((0,\tau)\)</span>, es adecuada para las observaciones a tratar para un tiempo fijo <span class="math inline">\(\tau\)</span>, es decir:</p>
 <p><span class="math display">\[
 \begin{array}{ccc}
@@ -245,7 +276,7 @@ H_0:h(t) = h_0(t)\ \forall \ t\leq \tau&amp;vs&amp; H_a:h(t) \neq h_0(t);\ \mbox
 \]</span></p>
 <p>Recordando que el estimador de la función de riesgo acumulado es <span class="math inline">\(\hat{H}_2(t) = \sum_{t_{i}\leq t}\frac{d_i}{n_i}\)</span>, entonces <span class="math inline">\(\frac{d_i}{n_i}\)</span> es un estimador de la tasa de riesgo en <span class="math inline">\(t_i\)</span>.</p>
 <p>Cuando la hipótesis nula es cierta, el valor esperado de la tasa de riesgo en <span class="math inline">\(t_i\)</span> es <span class="math inline">\(h_0(t_i)\)</span>. Ahora, sea <span class="math inline">\(\omega(t)\)</span> la función de pesos tal que <span class="math inline">\(\omega(t) = 0\)</span> si <span class="math inline">\(n_t = 0\)</span>, es decir que no se otorga algún peso cuando no hay elementos en dicho tiempo.</p>
-<p>Considerando el clásico estadístico de prueba <span class="math inline">\(Z(\tau) = O(\tau)-\mathbb{E}(\tau)\)</span> (elementos observados menos esperados)<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> y considerando que <span class="math inline">\(D\)</span> es el número de tiempos en la muestra, se tiene lo siguiente:</p>
+<p>Considerando el clásico estadístico de prueba <span class="math inline">\(Z(\tau) = O(\tau)-\mathbb{E}(\tau)\)</span> (elementos observados menos esperados) <a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> y considerando que <span class="math inline">\(D\)</span> es el número de tiempos en la muestra, se tiene lo siguiente:</p>
 <p><span class="math display">\[
 Z(\tau) = O(\tau)-\mathbb{E}(\tau) = \sum_{i = 1}^D\omega(ti)\frac{d_i}{n_i}-\int_0^{\tau}\omega(s)h_0(s)ds
 \]</span>
@@ -253,7 +284,7 @@ Sólo para confirmar, <span class="math inline">\(O(\tau)\)</span> representa el
 <p><span class="math display">\[
 Var(Z(\tau)) = \int_0^{\tau}\omega^2(s)\frac{h_0(s)}{n_s}ds
 \]</span></p>
-<p>Entonces, para muestras grandes el siguiente estadístico tiene una distribución <span class="math inline">\(\chi^2_{(1)}\)</span><a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>.</p>
+<p>Entonces, para muestras grandes el siguiente estadístico tiene una distribución <span class="math inline">\(\chi^2_{(1)}\)</span><a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>.</p>
 <p><span class="math display">\[
 T = \frac{[Z(\tau)]^2}{Var(Z(\tau))}\sim\chi^2_{(1)}
 \]</span></p>
@@ -262,8 +293,8 @@ T = \frac{[Z(\tau)]^2}{Var(Z(\tau))}\sim\chi^2_{(1)}
 \mathbb{E}[\tau] = Var(Z(\tau)) = \sum_{j = 1}^n\left(H_0(T_j)-H_0(L_j)\right)
 \]</span></p>
 <p>donde <span class="math inline">\(H_0(t)\)</span> es la función de riesgo acumulado bajo la hipótesis nula, <span class="math inline">\(L_j\)</span> es la edad de entrada y <span class="math inline">\(T_j\)</span> la edad de salida.</p>
-<div id="ejemplo-15" class="section level4 unnumbered">
-<h4>Ejemplo</h4>
+<div id="ejemplo-15" class="section level4 unnumbered hasAnchor">
+<h4>Ejemplo<a href="pruebas-de-hipótesis.html#ejemplo-15" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Se tiene una muestra de 26 pacientes con cierta enfermedad. Se desea probar que la tasa de riesgo es similar a la tasa de mortalidad de la población de Iowa en 1960. Realizando los cálculos correspondientes, se tiene lo siguiente</p>
 <p><span class="math display">\[
 Z(\tau) = O(26)-\mathbb{E}(26) = 15-4.4740\implies T=\frac{(15-4.4740)^2}{4.4740} = 24.76457
@@ -271,8 +302,8 @@ Z(\tau) = O(26)-\mathbb{E}(26) = 15-4.4740\implies T=\frac{(15-4.4740)^2}{4.4740
 <p>El <span class="math inline">\(p-value\)</span> de <span class="math inline">\(T = 24.76457\)</span> (6.4777279e-07) es cercano a cero <span class="math inline">\(\implies\)</span> se rechaza la hipótesis nula. <span class="math inline">\(\therefore\)</span> La tasa de riesgo NO es similar a la tasa de mortalidad de Iowa en 1960.</p>
 </div>
 </div>
-<div id="prueba-log-rank" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> Prueba Log-Rank</h2>
+<div id="prueba-log-rank" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Prueba Log-Rank<a href="pruebas-de-hipótesis.html#prueba-log-rank" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Mantel-Haenszel(1959) propusieron un estadístico que permite relacionar las pruebas de asociación de las tablas de contingencia con los contrastes de igualdad de funciones de supervivencia entre subgrupos poblacionales.</p>
 <p>Suponga que se quiere contrastar las funciones de supervivencia de dos grupos poblacionales, digamos Grupo 1 y Grupo 2:</p>
 <p><span class="math display">\[
@@ -374,8 +405,8 @@ L^2&gt;J_{1-\alpha}
 \]</span></p>
 <p>Donde <span class="math inline">\(J_{1-\alpha}\)</span> es el cuantil <span class="math inline">\(1-\alpha\)</span> de una <span class="math inline">\(\chi^2_{(1)}\)</span>. Recordemos que la regla de decisión puede obtenerse, también, a través del <span class="math inline">\(p-value\)</span>.</p>
 <p>La prueba Log-Rank es muy potente para detectar diferencias cuando los logaritmos de las funciones de supervivencia son <em>proporcionales</em>, no obstante, la potencia de la prueba disminuye cuando las funciones de supervivencia se <strong>cruzan</strong>.</p>
-<div id="ejemplo-16" class="section level4 unnumbered">
-<h4>Ejemplo</h4>
+<div id="ejemplo-16" class="section level4 unnumbered hasAnchor">
+<h4>Ejemplo<a href="pruebas-de-hipótesis.html#ejemplo-16" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Se tienen los tiempos de remisión (en semanas) para dos grupos de pacientes con leucemia. Cada grupo se conforma por 21 pacientes.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -448,7 +479,7 @@ Grupo 2 (Placebo)
 </tbody>
 </table>
 <p>La forma de la función de supervivencia para cada grupo es:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-35-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-36-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Las funciones de supervivencia de los dos grupos “parecen” tener diferencia, de acuerdo a la gráfica anterior. No obstante, debemos comprobar si es una diferencia <em>significativa</em>. Enseguida corroboraremos tal afirmación mediante la prueba Log-Rank.</p>
 <p>La siguiente tabla muestra los individuos que fallan y los individuos en riesgo de cada grupo para cada tiempo <span class="math inline">\(t_i\)</span> (<span class="math inline">\(i=1,2,...,k\)</span>), donde <span class="math inline">\(k\)</span>=17. Además, se muestran los cálculos de las fallas esperadas para la construcción del estadístico Log-Rank:</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -1154,8 +1185,8 @@ L^2=16.78&gt;J_{0.95}=3.8414
 <p>Por lo tanto, <strong>se rechaza</strong> <span class="math inline">\(H_0\)</span> y se concluye que <strong>existe diferencia significativa</strong> entre las funciones de supervivencia para el Grupo 1 (Tratamiento) y el Grupo 2 (Placebo).</p>
 </div>
 </div>
-<div id="prueba-generalizada-wilcoxon" class="section level2" number="9.3">
-<h2><span class="header-section-number">9.3</span> Prueba Generalizada Wilcoxon</h2>
+<div id="prueba-generalizada-wilcoxon" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Prueba Generalizada Wilcoxon<a href="pruebas-de-hipótesis.html#prueba-generalizada-wilcoxon" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Se considera la hipótesis a probar:</p>
 <p><span class="math display">\[
 \begin{array}{lllll}
@@ -1182,18 +1213,18 @@ W^2= \frac{(\sum_{i = 1}^k n_{i}(d_{1i}-e_{1i}))^2}{\sum_{i=1}^{k}n_{i}^2V_{1i}}
 W^2&gt;J_{1-\alpha}
 \]</span></p>
 <p>Donde <span class="math inline">\(J_{1-\alpha}\)</span> es el cuantil <span class="math inline">\(1-\alpha\)</span> de una <span class="math inline">\(\chi^2_{(1)}\)</span>.</p>
-<div id="ejercicio-2" class="section level4 unnumbered">
-<h4>Ejercicio</h4>
+<div id="ejercicio-2" class="section level4 unnumbered hasAnchor">
+<h4>Ejercicio<a href="pruebas-de-hipótesis.html#ejercicio-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Realice la prueba generalizada de Wilcoxon de acuerdo a los datos del ejemplo de la sección anterior.</p>
 </div>
 </div>
-<div id="comparación-de-m-poblaciones" class="section level2" number="9.4">
-<h2><span class="header-section-number">9.4</span> Comparación de <span class="math inline">\(m\)</span> Poblaciones</h2>
+<div id="comparación-de-m-poblaciones" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Comparación de <span class="math inline">\(m\)</span> Poblaciones<a href="pruebas-de-hipótesis.html#comparación-de-m-poblaciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Si deseamos comparar las funciones de supervivencia de <span class="math inline">\(m\)</span> poblaciones planteamos la siguiente hipótesis:</p>
 <p><span class="math display">\[
 H_0:S_1(t) = S_2(t) = ... = S_m(t) \forall t \mbox{ vs } H_a:S_r(t)\neq S_s(t) \mbox{ p.a } r\neq s; r,s = 1,...,m
 \]</span></p>
-<p>Para realizar la prueba, denotemos <span class="math inline">\(d_{i}\)</span> el vector de fallas al tiempo <span class="math inline">\(t_i\)</span>, <span class="math inline">\(i=1,...,k\)</span> con vector de medias <span class="math inline">\(\mathbb{E}(d_i)\)</span> y las entradas de la matriz de varianzas<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> y covarianzas de la siguiente manera:</p>
+<p>Para realizar la prueba, denotemos <span class="math inline">\(d_{i}\)</span> el vector de fallas al tiempo <span class="math inline">\(t_i\)</span>, <span class="math inline">\(i=1,...,k\)</span> con vector de medias <span class="math inline">\(\mathbb{E}(d_i)\)</span> y las entradas de la matriz de varianzas<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> y covarianzas de la siguiente manera:</p>
 <p><span class="math display">\[
 Var(d_{ji}) = \frac{n_{1i}\cdot n_{2i}\cdot d_i(n_i-d_i)}{n_i^2(n_i-1)}
 \]</span></p>
@@ -1216,10 +1247,10 @@ Cov(d_{ji},...,d_{hi}) = \frac{-n_{ji}\cdot n_{hi}\cdot d_i(n_i-d_i)}{n_i^2(n_i-
 
 <div class="footnotes">
 <hr />
-<ol start="11">
-<li id="fn11"><p>Ver el parecido con el estadístico utilizado en pruebas de independencia.<a href="pruebas-de-hipótesis.html#fnref11" class="footnote-back">↩︎</a></p></li>
-<li id="fn12"><p>¿Qué distribución de conteo tiene la misma varianza que su media?<a href="pruebas-de-hipótesis.html#fnref12" class="footnote-back">↩︎</a></p></li>
-<li id="fn13"><p>Se tiene <span class="math inline">\(n_{1j}\)</span> y <span class="math inline">\(n_{2j}\)</span> ya que se esta asumiendo que todas las poblaciones tienen una misma distribución, por lo que se esperaría que la varianza fuera la misma que para la población 1.<a href="pruebas-de-hipótesis.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<ol start="8">
+<li id="fn8"><p>Ver el parecido con el estadístico utilizado en pruebas de independencia.<a href="pruebas-de-hipótesis.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>¿Qué distribución de conteo tiene la misma varianza que su media?<a href="pruebas-de-hipótesis.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>Se tiene <span class="math inline">\(n_{1j}\)</span> y <span class="math inline">\(n_{2j}\)</span> ya que se esta asumiendo que todas las poblaciones tienen una misma distribución, por lo que se esperaría que la varianza fuera la misma que para la población 1.<a href="pruebas-de-hipótesis.html#fnref10" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -1232,7 +1263,6 @@ Cov(d_{ji},...,d_{hi}) = \frac{-n_{ji}\cdot n_{hi}\cdot d_i(n_i-d_i)}{n_i^2(n_i-
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1251,6 +1281,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "github", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -1271,6 +1302,10 @@ gitbook.start({
 "text": null
 },
 "download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }
@@ -1284,7 +1319,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

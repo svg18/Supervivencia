@@ -5,23 +5,23 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 8 Algunas Estimaciones sobre Modelos No Paramétricos | Modelos de Supervivencia</title>
-  <meta name="description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
-  <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
+  <meta name="description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 8 Algunas Estimaciones sobre Modelos No Paramétricos | Modelos de Supervivencia" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
   
-  <meta property="og:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
-  <meta name="github-repo" content="CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
+  <meta property="og:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="github-repo" content="svg18/Supervivencia" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Capítulo 8 Algunas Estimaciones sobre Modelos No Paramétricos | Modelos de Supervivencia" />
   
-  <meta name="twitter:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="twitter:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
 
 <meta name="author" content="Sofía Villers Gómez" />
+<meta name="author" content="David Alberto Mateos Montes de Oca" />
 <meta name="author" content="Carlos Fernando Vásquez Guerra" />
 <meta name="author" content="Luis Angel Ramirez Teodoro" />
 
@@ -34,8 +34,8 @@
   
 <link rel="prev" href="modelos-no-paramétricos-para-la-función-de-supervivencia.html"/>
 <link rel="next" href="pruebas-de-hipótesis.html"/>
-<script src="libs/header-attrs-2.6.4/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,9 +51,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
@@ -63,6 +63,32 @@
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -98,7 +124,10 @@
 <li class="chapter" data-level="1.4" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-izquierda"><i class="fa fa-check"></i><b>1.4</b> Censura por la Izquierda</a></li>
 <li class="chapter" data-level="1.5" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-intervalos"><i class="fa fa-check"></i><b>1.5</b> Censura por Intervalos</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="datos-truncados.html"><a href="datos-truncados.html"><i class="fa fa-check"></i><b>2</b> Datos Truncados</a></li>
+<li class="chapter" data-level="2" data-path="datos-truncados.html"><a href="datos-truncados.html"><i class="fa fa-check"></i><b>2</b> Datos Truncados</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="datos-truncados.html"><a href="datos-truncados.html#ejercicios"><i class="fa fa-check"></i><b>2.1</b> Ejercicios</a></li>
+</ul></li>
 <li class="part"><span><b>II Estudio paramétrico</b></span></li>
 <li class="chapter" data-level="3" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html"><i class="fa fa-check"></i><b>3</b> Funciones para el Análisis de Supervivencia</a>
 <ul>
@@ -140,6 +169,7 @@
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-6"><i class="fa fa-check"></i>Caso continuo</a></li>
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-6"><i class="fa fa-check"></i>Caso discreto</a></li>
 </ul></li>
+<li class="chapter" data-level="4.5" data-path="par-poblacionales.html"><a href="par-poblacionales.html#ejercicios-1"><i class="fa fa-check"></i><b>4.5</b> Ejercicios</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html"><i class="fa fa-check"></i><b>5</b> Modelos Paramétricos</a>
 <ul>
@@ -163,6 +193,7 @@
 <li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-exponencial-1"><i class="fa fa-check"></i>Modelo Exponencial</a></li>
 <li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-weibull-1"><i class="fa fa-check"></i>Modelo Weibull</a></li>
 </ul></li>
+<li class="chapter" data-level="6.8" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#ejercicios-2"><i class="fa fa-check"></i><b>6.8</b> Ejercicios</a></li>
 </ul></li>
 <li class="part"><span><b>III Estudio no paramétrico</b></span></li>
 <li class="chapter" data-level="7" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><i class="fa fa-check"></i><b>7</b> Modelos No Paramétricos para la Función de Supervivencia</a>
@@ -230,13 +261,13 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="algunas-estimaciones-sobre-modelos-no-paramétricos" class="section level1" number="8">
-<h1><span class="header-section-number">Capítulo 8</span> Algunas Estimaciones sobre Modelos No Paramétricos</h1>
+<div id="algunas-estimaciones-sobre-modelos-no-paramétricos" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Capítulo 8</span> Algunas Estimaciones sobre Modelos No Paramétricos<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#algunas-estimaciones-sobre-modelos-no-paramétricos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Cuando se emplean los modelos no paramétricos, es necesario hacer inferencia más allá de la estimación puntual. Para tal propósito, conocer la varianza de algunos estimadores de interés, resulta de gran ayuda.</p>
-<div id="estimación-de-la-varianza-para-el-estimador-de-st" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> Estimación de la Varianza para el Estimador de <span class="math inline">\(S(t)\)</span></h2>
-<div id="tabla-de-vida" class="section level3" number="8.1.1">
-<h3><span class="header-section-number">8.1.1</span> Tabla de Vida</h3>
+<div id="estimación-de-la-varianza-para-el-estimador-de-st" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Estimación de la Varianza para el Estimador de <span class="math inline">\(S(t)\)</span><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-de-la-varianza-para-el-estimador-de-st" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tabla-de-vida" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Tabla de Vida<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#tabla-de-vida" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para la tabla de vida se tienen los siguientes resultados:</p>
 <p><span class="math display">\[
 \begin{array}{ll}
@@ -245,7 +276,7 @@
 \]</span></p>
 <p>Entonces un estimador de la varianza para <span class="math inline">\(\hat{S_j}\)</span> es:</p>
 <p><span class="math display">\[
- \hat{Var}(\hat{S}_{j}) = \hat{S}_{j}^2\sum_{i = 1}^{j}\frac{\hat{q_i}}{\hat{p_i}(n_{i}-\frac{c_{i}}{2})}
+\hat{Var}(\hat{S}_{j}) = \hat{S}_{j}^2\sum_{i = 1}^{j}\frac{\hat{q_i}}{\hat{p_i}(n_{i}-\frac{c_{i}}{2})}
 \]</span></p>
 <p>Si deseamos obtener intervalos de confianza puntuales para <span class="math inline">\(S(t)\)</span>, podemos partir de la distribución asintótica de <span class="math inline">\(\hat{S_j}\)</span>:</p>
 <p><span class="math display">\[
@@ -256,8 +287,8 @@
 \hat S_j \pm Z_{1-\frac{\alpha}{2}} \sqrt{\hat{Var}(\hat S_j)}
 \]</span></p>
 </div>
-<div id="kaplan-meier" class="section level3" number="8.1.2">
-<h3><span class="header-section-number">8.1.2</span> Kaplan-Meier</h3>
+<div id="kaplan-meier" class="section level3 hasAnchor" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Kaplan-Meier<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#kaplan-meier" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Partiendo de que</p>
 <p><span class="math display">\[
 \hat{S}(t) = \prod_{k:u_k \leq t}(1-h_{k})
@@ -280,7 +311,7 @@ Var(\hat{S}(t)) = \hat{S}^2(t)\sum_{k:u_k \leq t}\frac{Var(\hat{h}_k)}{(1-\hat{h
 <ul>
 <li><p>El estimador del error estándar será: <span class="math inline">\(\sqrt{\hat{Var}(\hat{S}(t))}\)</span>.</p></li>
 <li><p>Cuando <span class="math inline">\(n\rightarrow\infty\)</span>, <span class="math inline">\(\hat{S}(t)\)</span> tiene una distribución normal: <span class="math inline">\(\hat{S}(t)\sim N(S(t), Var(\hat{S}(t)))\)</span>.</p></li>
-<li><p>El intervalo puntual al <span class="math inline">\((1-\alpha)*100\%\)</span> de confianza para <span class="math inline">\(S(t_{0})\)</span> será: <span class="math inline">\(\hat{S}(t_{0}) \pm Z_{1-\alpha/2} \sqrt{\hat{Var}(\hat{S}(t_0))}\)</span><a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>.</p></li>
+<li><p>El intervalo puntual al <span class="math inline">\((1-\alpha)*100\%\)</span> de confianza para <span class="math inline">\(S(t_{0})\)</span> será: <span class="math inline">\(\hat{S}(t_{0}) \pm Z_{1-\alpha/2} \sqrt{\hat{Var}(\hat{S}(t_0))}\)</span><a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p></li>
 </ul>
 <p>Para este último punto, pueden existir ocasiones en las que el intervalo de confianza se encuentre fuera del rango <span class="math inline">\([0,1]\)</span>, por lo que existen diferentes aproximaciones para resolver dicho problema. Una de ellas es mejorando la aproximación a la distribución normal (ya que se menciono previamente que : <span class="math inline">\(\hat{S}(t)\sim N(S(t), Var(\hat{S}(t)))\)</span>) utilizando la transformación <span class="math inline">\(log-log\)</span>, obteniendo así la siguiente expresión:</p>
 <p><span class="math display">\[
@@ -290,8 +321,8 @@ Var(\hat{S}(t)) = \hat{S}^2(t)\sum_{k:u_k \leq t}\frac{Var(\hat{h}_k)}{(1-\hat{h
 <p><span class="math display">\[
 \exp\left(\ln(\hat{S}(t_{0})) \pm Z_{1-\alpha/2} \frac{\sqrt{\hat{Var}(\hat{S}(t_0))}}{\hat{S}(t_{0})}\right)
 \]</span></p>
-<div id="ejercicio-1" class="section level4 unnumbered">
-<h4>Ejercicio</h4>
+<div id="ejercicio-1" class="section level4 unnumbered hasAnchor">
+<h4>Ejercicio<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#ejercicio-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Un estudio consistió en medir el tiempo(en meses) en que los pacientes desarrollaron un cierto tipo de tumor. Los resultados que se obtuvieron fueron:</p>
 <p><span class="math display">\[
 10,13^+,18^+,19,23^+,30,36,38^+,54^+,56^+,59,75,93,97,104^+,107,107^+,107^+
@@ -564,15 +595,15 @@ Upper_95%
 </tbody>
 </table>
 <p>La gráfica correspondiente es:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>
-<div id="estimadores-de-la-función-de-riesgo-acumulada" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> Estimadores de la Función de Riesgo Acumulada</h2>
+<div id="estimadores-de-la-función-de-riesgo-acumulada" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Estimadores de la Función de Riesgo Acumulada<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimadores-de-la-función-de-riesgo-acumulada" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Recordemos que:</p>
 <p><span class="math display">\[
-H(t)=-log(S(t)) 
+H(t)=-log(S(t))
 \]</span></p>
 <p>Entonces podemos estimar <span class="math inline">\(H(t)\)</span> de una manera sencilla (<span class="math inline">\(\hat{S}(t)\)</span> es obtenido por <em>K-M</em>):</p>
 <p><span class="math display">\[
@@ -598,8 +629,8 @@ H(t)=\sum_{j:u_{j}\leq t} h_j
 <p><span class="math display">\[
 \hat{H_2}(t_{0}) \pm Z_{1-\alpha/2} \frac{\sqrt{\hat{Var}\{\hat{H_2}(t)\}}}{\hat{H_2}(t_{0})}
 \]</span></p>
-<div id="ejemplo-11" class="section level4 unnumbered">
-<h4>Ejemplo</h4>
+<div id="ejemplo-11" class="section level4 unnumbered hasAnchor">
+<h4>Ejemplo<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#ejemplo-11" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Siguiendo con el ejemplo anterior, que mide el tiempo (en meses) en que los pacientes desarrollaron un cierto tipo de tumor.</p>
 <p>La tabla muestra <span class="math inline">\(\hat S(t)\)</span> por el método de <em>K-M</em>, entonces podemos calcular <span class="math inline">\(\hat {H}_1(t)=-log(\hat S(t))\)</span>. Y por otro lado usar el estimador Nelson-Aalen para obtener <span class="math inline">\(\hat{H}_2(t)\)</span>.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -840,8 +871,8 @@ time
 </table>
 </div>
 </div>
-<div id="estimación-puntual-de-la-media" class="section level2" number="8.3">
-<h2><span class="header-section-number">8.3</span> Estimación Puntual de la Media</h2>
+<div id="estimación-puntual-de-la-media" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Estimación Puntual de la Media<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-puntual-de-la-media" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Puede ser de interés estudiar algunos parámetros poblacionales que dependen de la función de supervivencia. Por ejemplo: la media, la mediana y cualquier cuantil o percentil.</p>
 <p>Hemos visto en la sección <a href="par-poblacionales.html#media">4.1</a> que:</p>
 <p><span class="math display">\[
@@ -867,8 +898,8 @@ time
 \]</span></p>
 <p><strong>NOTA:</strong> Es importante que, cuando se esté calculando la media de supervivencia <span class="math inline">\(\hat\mu_{\tau}\)</span>, se verifique que el último valor no sea censurado y se observe en qué intervalo se está calculando la media.</p>
 </div>
-<div id="estimación-de-cuantiles" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> Estimación de Cuantiles</h2>
+<div id="estimación-de-cuantiles" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Estimación de Cuantiles<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-de-cuantiles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Recordemos que los cuantiles de orden <span class="math inline">\(p\)</span>, <span class="math inline">\(t_p\)</span>, es el mínimo valor <span class="math inline">\(t\)</span> tal que <span class="math inline">\(S(t)\leq 1-p\)</span>. Usando el estimador <span class="math inline">\(\hat{S}(t)\)</span> obtenido por <em>K-M</em>, tenemos:</p>
 <p><span class="math display">\[
 \hat{t}_p = inf\{t:\hat{S}(t)\leq 1-p\}
@@ -878,8 +909,8 @@ time
 \hat{t}_{0.5} = inf\{t:\hat{S}(t)\leq 0.5\}
 \]</span></p>
 </div>
-<div id="bandas-de-confianza-para-la-función-de-supervivencia" class="section level2" number="8.5">
-<h2><span class="header-section-number">8.5</span> Bandas de Confianza para la Función de Supervivencia</h2>
+<div id="bandas-de-confianza-para-la-función-de-supervivencia" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Bandas de Confianza para la Función de Supervivencia<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#bandas-de-confianza-para-la-función-de-supervivencia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Deseamos encontrar dos v.a. <span class="math inline">\(L(t)\)</span> y <span class="math inline">\(U(t)\)</span> tales que:</p>
 <p><span class="math display">\[
 \begin{array}{ll}
@@ -887,51 +918,51 @@ time
 \end{array}
 \]</span></p>
 <p>Entonces <span class="math inline">\([L(t), U(t)]\)</span> serán las bandas al <span class="math inline">\((1-\alpha)*100\%\)</span> de confianza de <span class="math inline">\(S(t)\)</span>. Puede usted decir ¿cuál es la diferencia entre <em>bandas de confianza</em> e <em>intervalos de confianza puntuales</em>?</p>
-<p>Hay dos métodos de aproximación para las bandas de confianza. La primera aproximación fue propuesta por <em>Nair</em> <span class="citation">(Nair <a href="#ref-nair1984confidence" role="doc-biblioref">1984</a>)</span> y esencialmente proporciona límites de confianza que son proporcionales a los intervalos de confianza puntuales, estas bandas son llamadas <em>bandas de probabilidad iguales</em> o <em>bandas EP</em><a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>. Caso contrario, la segunda aproximación, propuesta por <a href="http://www.ressources-actuarielles.net/EXT/ISFA/1226.nsf/0/b163cbaba7cf2db9c125776b004d3573/%24FILE/Hall_Wellner_1980.pdf"><em>Hall</em> y <em>Wellner</em></a><a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> <span class="citation">(Hall and Wellner <a href="#ref-hall1980confidence" role="doc-biblioref">1980</a>)</span>, establece bandas no proporcionales a los intervalos de confianza puntuales.</p>
+<p>Hay dos métodos de aproximación para las bandas de confianza. La primera aproximación fue propuesta por <em>Nair</em> <span class="citation">(<a href="#ref-nair1984confidence">Nair 1984</a>)</span> y esencialmente proporciona límites de confianza que son proporcionales a los intervalos de confianza puntuales, estas bandas son llamadas <em>bandas de probabilidad iguales</em> o <em>bandas EP</em><a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>. Caso contrario, la segunda aproximación, propuesta por <a href="http://www.ressources-actuarielles.net/EXT/ISFA/1226.nsf/0/b163cbaba7cf2db9c125776b004d3573/%24FILE/Hall_Wellner_1980.pdf"><em>Hall</em> y <em>Wellner</em></a><a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> <span class="citation">(<a href="#ref-hall1980confidence">Hall and Wellner 1980</a>)</span>, establece bandas no proporcionales a los intervalos de confianza puntuales.</p>
 <p>Nuestro interés es obtener las bandas de confianza para <span class="math inline">\(S(t)\)</span>; afortunadamente hoy en día se cuenta con software que nos ayuda en dicha tarea, específicamente en <strong>R</strong> es sencillo obtenerlo.</p>
 </div>
-<div id="diagnóstico-para-el-uso-de-modelos-paramétricos" class="section level2" number="8.6">
-<h2><span class="header-section-number">8.6</span> Diagnóstico para el Uso de Modelos Paramétricos</h2>
+<div id="diagnóstico-para-el-uso-de-modelos-paramétricos" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Diagnóstico para el Uso de Modelos Paramétricos<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#diagnóstico-para-el-uso-de-modelos-paramétricos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Si existe la necesidad de encontrar un modelo paramétrico que ajuste “bien” a los datos, se pueden emplear algunos métodos gráficos que nos den algunos <em>indicios</em> sobre la posible <em>distribución</em> de los datos. Tales indicios pueden ser proporcionados por los métodos no paramétricos.</p>
-<div id="gráficas-de-las-funciones-de-supervivencia" class="section level3" number="8.6.1">
-<h3><span class="header-section-number">8.6.1</span> Gráficas de las Funciones de Supervivencia</h3>
+<div id="gráficas-de-las-funciones-de-supervivencia" class="section level3 hasAnchor" number="8.6.1">
+<h3><span class="header-section-number">8.6.1</span> Gráficas de las Funciones de Supervivencia<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráficas-de-las-funciones-de-supervivencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Se conoce la función de supervivencia paramétrica <span class="math inline">\(S(t ;\theta)\)</span> y se tiene un estimador <span class="math inline">\(\hat \theta\)</span>. Si el modelo paramétrico es <em>adecuado</em> entonces <span class="math inline">\(S(t ;\hat {\theta})\)</span> y <span class="math inline">\(\hat S(t)\)</span>(estimada por <em>K-M</em>) deben ser <em>similares</em>.</p>
-<div id="ejemplo-12" class="section level4 unnumbered">
-<h4>Ejemplo</h4>
+<div id="ejemplo-12" class="section level4 unnumbered hasAnchor">
+<h4>Ejemplo<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#ejemplo-12" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Se tienen los siguientes tiempos de supervivencia:</p>
 <p><span class="math display">\[
 8,5,10^+,1,3,18,22,15,25^+,19
 \]</span></p>
 <p>Se desea saber si estos datos ajustan a un modelo <em>exponencial</em> con <span class="math inline">\(\lambda =0.06\)</span>. Realizamos las gráficas de supervivencia:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-29-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-30-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>De acuerdo a la gráfica anterior, ¿Existe algún indicio de que los datos siguen una distribución exponencial con <span class="math inline">\(\lambda =0.06\)</span>?</p>
 </div>
 </div>
-<div id="gráfica-p-p" class="section level3" number="8.6.2">
-<h3><span class="header-section-number">8.6.2</span> Gráfica <span class="math inline">\(P-P\)</span></h3>
+<div id="gráfica-p-p" class="section level3 hasAnchor" number="8.6.2">
+<h3><span class="header-section-number">8.6.2</span> Gráfica <span class="math inline">\(P-P\)</span><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráfica-p-p" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Si el modelo paramétrico es adecuado entonces los puntos:</p>
 <p><span class="math display">\[
 \left(S(t_j ;\hat{\theta}),\hat S(t_j)\right)
 \]</span></p>
 <p>Deberán caer en la recta identidad (<span class="math inline">\(\hat S(t_j)\)</span> es estimada por <em>K-M</em>). Es llamada <em>gráfica <span class="math inline">\(P-P\)</span></em> pues se gráfica <em>Probabilidad vs Probabilidad</em>.</p>
-<div id="ejemplo-13" class="section level4 unnumbered">
-<h4>Ejemplo</h4>
+<div id="ejemplo-13" class="section level4 unnumbered hasAnchor">
+<h4>Ejemplo<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#ejemplo-13" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Tomando los datos del ejemplo anterior, queremos ver si los datos se distribuyen posiblemente exponencial con <span class="math inline">\(\lambda =0.06\)</span>. Si hacemos la gráfica <em>P-P</em> se tiene:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-30-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-31-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>De acuerdo a la gráfica <em><span class="math inline">\(P-P\)</span></em>, ¿Es el modelo exponencial con <span class="math inline">\(\lambda=0.06\)</span> adecuado a los datos?</p>
 </div>
 </div>
-<div id="gráfica-q-q" class="section level3" number="8.6.3">
-<h3><span class="header-section-number">8.6.3</span> Gráfica <span class="math inline">\(Q-Q\)</span></h3>
+<div id="gráfica-q-q" class="section level3 hasAnchor" number="8.6.3">
+<h3><span class="header-section-number">8.6.3</span> Gráfica <span class="math inline">\(Q-Q\)</span><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráfica-q-q" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La <em>gráfica <span class="math inline">\(Q-Q\)</span></em> consiste en graficar diversos cuantiles de los <strong>datos</strong> <em>vs</em> diversos cuantiles del modelo paramétrico propuesto. Si el modelo teórico propuesto es “adecuado” a los datos entonces la gráfica será cercana a la función identidad.</p>
 <p>A continuación se muestra un ejemplo de la gráfica <span class="math inline">\(Q-Q\)</span>:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-31-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="linearización-de-la-función-de-supervivencia" class="section level3" number="8.6.4">
-<h3><span class="header-section-number">8.6.4</span> Linearización de la Función de Supervivencia</h3>
+<div id="linearización-de-la-función-de-supervivencia" class="section level3 hasAnchor" number="8.6.4">
+<h3><span class="header-section-number">8.6.4</span> Linearización de la Función de Supervivencia<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#linearización-de-la-función-de-supervivencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Cuando tenemos un modelo paramétrico <span class="math inline">\(S(t;\theta)\)</span> pero no conocemos <span class="math inline">\(\hat{\theta}\)</span> podemos hacer <em>linearización de la función de supervivencia</em>. Es decir, si existen <span class="math inline">\(g_1\)</span> y <span class="math inline">\(g_2\)</span> tales que <span class="math inline">\(g_1\{S(t;\theta)\}\)</span> es una función <em>lineal</em> de <span class="math inline">\(g_2(t)\)</span> entonces podemos graficar <span class="math inline">\(g_1(\hat{S}(t))\)</span> <em>vs</em> <span class="math inline">\(g_2(t)\)</span>. Y si la familia paramétrica es adecuada, la gráfica se aproxima a una linea recta. Para este método gráfico se utiliza el estimador <strong>Nelson-Aalen</strong> para <span class="math inline">\(\hat S(t)\)</span>.</p>
-<div id="modelo-exponencial-2" class="section level4 unnumbered">
-<h4>Modelo Exponencial</h4>
+<div id="modelo-exponencial-2" class="section level4 unnumbered hasAnchor">
+<h4>Modelo Exponencial<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#modelo-exponencial-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Tenemos que:</p>
 <p><span class="math display">\[
 S(t)=e^{-\lambda t}
@@ -941,14 +972,14 @@ S(t)=e^{-\lambda t}
 \]</span></p>
 <p>De manera que <span class="math inline">\(g_1=log\{S(t)\}\)</span> y <span class="math inline">\(g_2=t\)</span>. Entonces debemos graficar <span class="math inline">\(log(\hat S(t))\)</span> <em>vs</em> <span class="math inline">\(t\)</span>, y si los datos se ajustan a un modelo exponencial, dicha gráfica debe ser aproximadamente una linea recta con pendiente <span class="math inline">\(-\lambda\)</span>.</p>
 </div>
-<div id="ejemplo-14" class="section level4 unnumbered">
-<h4>Ejemplo</h4>
+<div id="ejemplo-14" class="section level4 unnumbered hasAnchor">
+<h4>Ejemplo<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#ejemplo-14" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Consideremos los datos: <span class="math inline">\(8,5,10^+,1,3,18,22,15,25^+,19\)</span>, veamos si se pueden ajustar posiblemente a un modelo exponencial a través de la gráfica de linearización. Entonces tenemos:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>¿Qué puede decir a partir de la gráfica anterior?, ¿Puede asumirse que los datos se ajustan a un modelo exponencial?</p>
 </div>
-<div id="modelo-weibull-2" class="section level4 unnumbered">
-<h4>Modelo Weibull</h4>
+<div id="modelo-weibull-2" class="section level4 unnumbered hasAnchor">
+<h4>Modelo Weibull<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#modelo-weibull-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Para el modelo Weibull tenemos que:</p>
 <p><span class="math display">\[
 S(t)=e^{-(\lambda t)^{\gamma}}
@@ -961,8 +992,8 @@ S(t)=e^{-(\lambda t)^{\gamma}}
 \]</span></p>
 <p>Entonces <span class="math inline">\(g_1=log\{-log\{S(t)\}\}\)</span> y <span class="math inline">\(g_2=log(t)\)</span>. Por lo que debemos graficar <span class="math inline">\(log\{-log\{\hat S(t)\}\}\)</span> <em>vs</em> <span class="math inline">\(log(t)\)</span>, y si los datos se ajustan a un modelo Weibull, la gráfica debe ser aproximadamente una linea recta con intercepto <span class="math inline">\(\gamma log(\lambda)\)</span> y pendiente <span class="math inline">\(\gamma\)</span>.</p>
 </div>
-<div id="modelo-log-logístico-1" class="section level4 unnumbered">
-<h4>Modelo Log-Logístico</h4>
+<div id="modelo-log-logístico-1" class="section level4 unnumbered hasAnchor">
+<h4>Modelo Log-Logístico<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#modelo-log-logístico-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>La función de supervivencia es:</p>
 <p><span class="math display">\[
 S(t)=(1+\lambda t^{\alpha})^{-1}
@@ -975,8 +1006,8 @@ S(t)=(1+\lambda t^{\alpha})^{-1}
 \]</span></p>
 <p>La gráfica de diagnóstico es: <span class="math inline">\(log\{exp\{-log\{\hat S(t)\}\}-1\}\)</span> <em>vs</em> <span class="math inline">\(log(t)\)</span>. Si el modelo Log-Logístico es adecuado a los datos, entonces la gráfica es aproximadamente una linea recta con intercepto <span class="math inline">\(log(\lambda)\)</span> y pendiente <span class="math inline">\(\alpha\)</span>.</p>
 </div>
-<div id="modelo-log-normal-1" class="section level4 unnumbered">
-<h4>Modelo Log-Normal</h4>
+<div id="modelo-log-normal-1" class="section level4 unnumbered hasAnchor">
+<h4>Modelo Log-Normal<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#modelo-log-normal-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Para este modelo, la gráfica que debemos emplear para el diagnóstico es <span class="math inline">\(\Phi^{-1}[1-exp(-log(\hat S(t)))]\)</span> <em>vs</em> <span class="math inline">\(log(t)\)</span>, donde <span class="math inline">\(\Phi^{-1}\)</span> son los cuantiles de una <em>Normal estándar</em>. Una linea recta(aproximadamente) indica una posible distribución Log-Normal en los datos.</p>
 <p>Los métodos gráficos que hemos visto son una herramienta que proporcionan indicios sobre la posible distribución de los datos(si nuestro interés es encontrar un modelo paramétrico). Evidentemente una gráfica no <strong>demuestra nada</strong> por lo que tendríamos que realizar pruebas formales de <strong>bondad de ajuste</strong> (pruebas que consideren la censura y/o truncamiento).</p>
 
@@ -985,21 +1016,21 @@ S(t)=(1+\lambda t^{\alpha})^{-1}
 </div>
 </div>
 <h3>References</h3>
-<div id="refs" class="references hanging-indent">
-<div id="ref-hall1980confidence">
-<p>Hall, Wendy J, and Jon A Wellner. 1980. “Confidence Bands for a Survival Curve from Censored Data.” <em>Biometrika</em> 67 (1): 133–43.</p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-hall1980confidence" class="csl-entry">
+Hall, Wendy J, and Jon A Wellner. 1980. <span>“Confidence Bands for a Survival Curve from Censored Data.”</span> <em>Biometrika</em> 67 (1): 133–43.
 </div>
-<div id="ref-nair1984confidence">
-<p>Nair, Vijayan N. 1984. “Confidence Bands for Survival Functions with Censored Data: A Comparative Study.” <em>Technometrics</em> 26 (3): 265–75.</p>
+<div id="ref-nair1984confidence" class="csl-entry">
+Nair, Vijayan N. 1984. <span>“Confidence Bands for Survival Functions with Censored Data: A Comparative Study.”</span> <em>Technometrics</em> 26 (3): 265–75.
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="8">
-<li id="fn8"><p>Posiblemente al realizar las cuentas, como en el ejemplo que se encuentra en esta sub sección, se obtengan valores negativos en alguno de los límites inferiores del intervalo de confianza. Esto es porque la expresión matemática del intervalo de confianza permite este tipo de valores, pero al tratarse de una función de supervivencia <span class="math inline">\(S(t)\)</span> su rango serán valores en <span class="math inline">\([0,1]\)</span>, por lo que, por convención, se coloca el valor 0 cuando se tiene un número negativo.<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#fnref8" class="footnote-back">↩︎</a></p></li>
-<li id="fn9"><p>Tanto para estas bandas como las de Hall &amp; Wellner se consideran los <span class="math inline">\(D\)</span> eventos distintos del tiempo <span class="math inline">\(t_1&lt;t_2&lt;\cdots&lt;t_D\)</span>; <span class="math inline">\(t_L&lt;t_U\)</span> el rango de tiempo para las bandas de confianza, por lo que <span class="math inline">\(t_U\)</span> es menor o igual al evento de tiempo más grande. <span class="math inline">\(t_L\)</span>, en este caso es más grande o igual al tiempo de evento más pequeño y para ambas bandas se tiene que <span class="math inline">\(\alpha_L = \frac{n\sigma^2_S(t_L)}{1+n\sigma^2_S(t_L)} \mbox{ y } \alpha_U = \frac{n\sigma^2_S(t_U)}{1+n\sigma^2_S(t_U)}\)</span>.
-Las bandas EP al <span class="math inline">\(100(1-\alpha)\%\)</span> están dadas por <span class="math display">\[\hat{S}(t)-e_{\alpha}(\alpha_L, \alpha_U)\hat{S}(t)\sigma_S(t)\leq S(t)\leq\hat{S}(t)+e_{\alpha}(\alpha_L, \alpha_U)\hat{S}(t)\sigma_S(t)\]</span> para todos los <span class="math inline">\(t_L\leq t\leq t_U\)</span>, donde <span class="math inline">\(e_{\alpha}(\alpha_L, \alpha_U)\)</span> es un cuantil tal que <span class="math inline">\(\alpha = \mathbb{P}\left(\sup\limits_{\alpha_L\leq u\leq \alpha_U}\frac{|W^0(u)|}{[u(1-u)]^{1/2}}&gt; e_{\alpha}\left(\alpha_L, \alpha_U\right)\right)\)</span> donde <span class="math inline">\(W^0(u)\)</span> es un <a href="https://en.wikipedia.org/wiki/Brownian_bridge">puente browninano</a> con <span class="math inline">\(0\leq u\leq1\)</span> y <span class="math inline">\(\hat{S}(t)\sigma_S(t)\)</span> se derivada del estimador de Greenwood.<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#fnref9" class="footnote-back">↩︎</a></p></li>
-<li id="fn10"><p>Las bandas Hall and Wellner al <span class="math inline">\(100(1-\alpha)\%\)</span> están dadas por <span class="math inline">\(\hat{S}(t)-h_{\alpha}(\alpha_L, \alpha_U)\sqrt{n}\left[1+n\sigma^2_S(t)\right]\hat{S}(t)\leq S(t)\leq\hat{S}(t)+h_{\alpha}(\alpha_L, \alpha_U)\sqrt{n}\left[1+n\sigma^2_S(t)\right]\hat{S}(t)\)</span> para todos los <span class="math inline">\(t_L\leq t\leq t_U\)</span> donde los valores críticos <span class="math inline">\(h_\alpha(\alpha_L, \alpha_U)\)</span> esta dado por <span class="math inline">\(\alpha = \mathbb{P}\left(\sup\limits_{\alpha_L\leq u\leq \alpha_U}|W^0(u)|&gt; h_\alpha\left(\alpha_L, \alpha_U\right)\right)\)</span>. En este caso, <span class="math inline">\(t_L\)</span> puede ser cero. Se puede consultar más sobre estas expresiones en el siguiente <a href="https://documentation.sas.com/?cdcId=pgmsascdc&amp;cdcVersion=9.4_3.4&amp;docsetId=statug&amp;docsetTarget=statug_lifetest_details11.htm&amp;locale=ko">enlace</a>.<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<ol start="5">
+<li id="fn5"><p>Posiblemente al realizar las cuentas, como en el ejemplo que se encuentra en esta sub sección, se obtengan valores negativos en alguno de los límites inferiores del intervalo de confianza. Esto es porque la expresión matemática del intervalo de confianza permite este tipo de valores, pero al tratarse de una función de supervivencia <span class="math inline">\(S(t)\)</span> su rango serán valores en <span class="math inline">\([0,1]\)</span>, por lo que, por convención, se coloca el valor 0 cuando se tiene un número negativo.<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Tanto para estas bandas como las de Hall &amp; Wellner se consideran los <span class="math inline">\(D\)</span> eventos distintos del tiempo <span class="math inline">\(t_1&lt;t_2&lt;\cdots&lt;t_D\)</span>; <span class="math inline">\(t_L&lt;t_U\)</span> el rango de tiempo para las bandas de confianza, por lo que <span class="math inline">\(t_U\)</span> es menor o igual al evento de tiempo más grande. <span class="math inline">\(t_L\)</span>, en este caso es más grande o igual al tiempo de evento más pequeño y para ambas bandas se tiene que <span class="math inline">\(\alpha_L = \frac{n\sigma^2_S(t_L)}{1+n\sigma^2_S(t_L)} \mbox{ y } \alpha_U = \frac{n\sigma^2_S(t_U)}{1+n\sigma^2_S(t_U)}\)</span>.
+Las bandas EP al <span class="math inline">\(100(1-\alpha)\%\)</span> están dadas por <span class="math display">\[\hat{S}(t)-e_{\alpha}(\alpha_L, \alpha_U)\hat{S}(t)\sigma_S(t)\leq S(t)\leq\hat{S}(t)+e_{\alpha}(\alpha_L, \alpha_U)\hat{S}(t)\sigma_S(t)\]</span> para todos los <span class="math inline">\(t_L\leq t\leq t_U\)</span>, donde <span class="math inline">\(e_{\alpha}(\alpha_L, \alpha_U)\)</span> es un cuantil tal que <span class="math inline">\(\alpha = \mathbb{P}\left(\sup\limits_{\alpha_L\leq u\leq \alpha_U}\frac{|W^0(u)|}{[u(1-u)]^{1/2}}&gt; e_{\alpha}\left(\alpha_L, \alpha_U\right)\right)\)</span> donde <span class="math inline">\(W^0(u)\)</span> es un <a href="https://en.wikipedia.org/wiki/Brownian_bridge">puente browninano</a> con <span class="math inline">\(0\leq u\leq1\)</span> y <span class="math inline">\(\hat{S}(t)\sigma_S(t)\)</span> se derivada del estimador de Greenwood.<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Las bandas Hall and Wellner al <span class="math inline">\(100(1-\alpha)\%\)</span> están dadas por <span class="math inline">\(\hat{S}(t)-h_{\alpha}(\alpha_L, \alpha_U)\sqrt{n}\left[1+n\sigma^2_S(t)\right]\hat{S}(t)\leq S(t)\leq\hat{S}(t)+h_{\alpha}(\alpha_L, \alpha_U)\sqrt{n}\left[1+n\sigma^2_S(t)\right]\hat{S}(t)\)</span> para todos los <span class="math inline">\(t_L\leq t\leq t_U\)</span> donde los valores críticos <span class="math inline">\(h_\alpha(\alpha_L, \alpha_U)\)</span> esta dado por <span class="math inline">\(\alpha = \mathbb{P}\left(\sup\limits_{\alpha_L\leq u\leq \alpha_U}|W^0(u)|&gt; h_\alpha\left(\alpha_L, \alpha_U\right)\right)\)</span>. En este caso, <span class="math inline">\(t_L\)</span> puede ser cero. Se puede consultar más sobre estas expresiones en el siguiente <a href="https://documentation.sas.com/?cdcId=pgmsascdc&amp;cdcVersion=9.4_3.4&amp;docsetId=statug&amp;docsetTarget=statug_lifetest_details11.htm&amp;locale=ko">enlace</a>.<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#fnref7" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -1012,7 +1043,6 @@ Las bandas EP al <span class="math inline">\(100(1-\alpha)\%\)</span> están dad
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1031,6 +1061,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "github", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -1051,6 +1082,10 @@ gitbook.start({
 "text": null
 },
 "download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }
@@ -1064,7 +1099,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

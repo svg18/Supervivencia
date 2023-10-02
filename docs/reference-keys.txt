@@ -1,9 +1,14 @@
+fig:two-example-survival-functions
+fig:survival-actuar-example
+eq:cox-covariables-linear
 datos-censurados
 censura-por-la-derecha-tipo-i
 censura-por-la-derecha-tipo-ii
 censura-por-la-derecha-tipo-iii
 censura-por-la-izquierda
 censura-por-intervalos
+datos-truncados
+ejercicios
 funciones-para-el-análisis-de-supervivencia
 función-de-supervivencia
 RiskFunction
@@ -13,6 +18,7 @@ media
 varianza
 función-de-media-residual
 cuantiles-de-orden-p
+ejercicios-1
 modelos-paramétricos
 modelo-exponencial
 modelo-weibull
@@ -28,6 +34,7 @@ censura-aleatoria
 truncamiento-por-la-izquierda
 truncamiento-por-la-derecha
 estimaciones-para-algunos-modelos
+ejercicios-2
 modelos-no-paramétricos-para-la-función-de-supervivencia
 método-actuarial-tabla-de-vida
 estimador-producto-límite-kaplan-meier

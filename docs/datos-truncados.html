@@ -5,23 +5,23 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 2 Datos Truncados | Modelos de Supervivencia</title>
-  <meta name="description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
-  <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
+  <meta name="description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 2 Datos Truncados | Modelos de Supervivencia" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
   
-  <meta property="og:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
-  <meta name="github-repo" content="CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
+  <meta property="og:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="github-repo" content="svg18/Supervivencia" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Capítulo 2 Datos Truncados | Modelos de Supervivencia" />
   
-  <meta name="twitter:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="twitter:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
 
 <meta name="author" content="Sofía Villers Gómez" />
+<meta name="author" content="David Alberto Mateos Montes de Oca" />
 <meta name="author" content="Carlos Fernando Vásquez Guerra" />
 <meta name="author" content="Luis Angel Ramirez Teodoro" />
 
@@ -34,8 +34,8 @@
   
 <link rel="prev" href="datos-censurados.html"/>
 <link rel="next" href="funciones-para-el-análisis-de-supervivencia.html"/>
-<script src="libs/header-attrs-2.6.4/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,9 +51,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
@@ -63,6 +63,32 @@
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -98,7 +124,10 @@
 <li class="chapter" data-level="1.4" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-izquierda"><i class="fa fa-check"></i><b>1.4</b> Censura por la Izquierda</a></li>
 <li class="chapter" data-level="1.5" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-intervalos"><i class="fa fa-check"></i><b>1.5</b> Censura por Intervalos</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="datos-truncados.html"><a href="datos-truncados.html"><i class="fa fa-check"></i><b>2</b> Datos Truncados</a></li>
+<li class="chapter" data-level="2" data-path="datos-truncados.html"><a href="datos-truncados.html"><i class="fa fa-check"></i><b>2</b> Datos Truncados</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="datos-truncados.html"><a href="datos-truncados.html#ejercicios"><i class="fa fa-check"></i><b>2.1</b> Ejercicios</a></li>
+</ul></li>
 <li class="part"><span><b>II Estudio paramétrico</b></span></li>
 <li class="chapter" data-level="3" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html"><i class="fa fa-check"></i><b>3</b> Funciones para el Análisis de Supervivencia</a>
 <ul>
@@ -140,6 +169,7 @@
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-6"><i class="fa fa-check"></i>Caso continuo</a></li>
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-6"><i class="fa fa-check"></i>Caso discreto</a></li>
 </ul></li>
+<li class="chapter" data-level="4.5" data-path="par-poblacionales.html"><a href="par-poblacionales.html#ejercicios-1"><i class="fa fa-check"></i><b>4.5</b> Ejercicios</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html"><i class="fa fa-check"></i><b>5</b> Modelos Paramétricos</a>
 <ul>
@@ -163,6 +193,7 @@
 <li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-exponencial-1"><i class="fa fa-check"></i>Modelo Exponencial</a></li>
 <li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-weibull-1"><i class="fa fa-check"></i>Modelo Weibull</a></li>
 </ul></li>
+<li class="chapter" data-level="6.8" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#ejercicios-2"><i class="fa fa-check"></i><b>6.8</b> Ejercicios</a></li>
 </ul></li>
 <li class="part"><span><b>III Estudio no paramétrico</b></span></li>
 <li class="chapter" data-level="7" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><i class="fa fa-check"></i><b>7</b> Modelos No Paramétricos para la Función de Supervivencia</a>
@@ -230,22 +261,51 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="datos-truncados" class="section level1" number="2">
-<h1><span class="header-section-number">Capítulo 2</span> Datos Truncados</h1>
+<div id="datos-truncados" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Capítulo 2</span> Datos Truncados<a href="datos-truncados.html#datos-truncados" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>El truncamiento tiene lugar cuando sólo aquellos sujetos que manifiestan el evento dentro de una ventana observacional <span class="math inline">\((U,V)\)</span> son observados, del resto no se realiza ningún seguimiento y, por tanto, no se obtiene información sobre ellos (no hay información parcial). Las observaciones <span class="math inline">\(t_i\)</span> tales que <span class="math inline">\(t_i&lt;U\)</span>, serán observaciones truncadas por la izquierda y aquellas que <span class="math inline">\(t_i&gt;V\)</span> serán observaciones truncadas por la derecha.</p>
-<div id="ejemplos-de-datos-truncados" class="section level4 unnumbered">
-<h4>Ejemplos de Datos Truncados</h4>
+<div id="ejemplos-de-datos-truncados" class="section level4 unnumbered hasAnchor">
+<h4>Ejemplos de Datos Truncados<a href="datos-truncados.html#ejemplos-de-datos-truncados" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Deseamos medir la supervivencia de adultos mayores de 60 años. Entonces necesitamos que los individuos tengan al menos 60 años para que sean considerados en el estudio, por lo que el estudio está truncado por la izquierda. Otro ejemplo es si deseáramos medir la distancia de la tierra a las estrellas, este sería truncado por la derecha ya que no se puede ver más allá de un límite.</p>
 <p>Es importante mencionar que la diferencia entre <em>truncamiento</em> y <em>censura</em> es la información parcial disponible. En datos censurados hay información parcial, mientras que en datos truncados no.</p>
 </div>
-<div id="ejemplos-del-caso-continuo-y-caso-discreto" class="section level4 unnumbered">
-<h4>Ejemplos del caso continuo y caso discreto</h4>
+<div id="ejemplos-del-caso-continuo-y-caso-discreto" class="section level4 unnumbered hasAnchor">
+<h4>Ejemplos del caso continuo y caso discreto<a href="datos-truncados.html#ejemplos-del-caso-continuo-y-caso-discreto" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Un número grande de individuos sanos fueron enrolados en un estudio que inicio el 1/01/1970. Los individuos fueron seguidos por 30 años para estudiar la edad a la que desarrollaron cáncer de mama. Fueron sometidos a exámenes clínicos cada 3 años. Menciona si hay censura o truncamiento en:</p>
 <ol style="list-style-type: decimal">
 <li>Individuo sano, enrolado a los 30 años, durante el periodo de estudio nunca desarrollo cáncer de mama.</li>
 <li>Individuo sano, enrolado en el estudio con 40 años de edad, se le diagnosticó cáncer de mama en el quinto examen clínico.</li>
 <li>Individuo sano, enrolado con 50 años de edad, murió a los 63 años por paro cardíaco.</li>
 <li>Individuo con cáncer de piel en remisión.</li>
+</ol>
+</div>
+<div id="ejercicios" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Ejercicios<a href="datos-truncados.html#ejercicios" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>El análisis de supervivencia es un conjunto de procedimientos estadísticos para el cual la variable “respuesta” o de interés es dicotómica.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Cierto, la variable que nos interesa es: ocurre la falla/evento o no</li>
+<li>Falso, la variable de interés es “tiempo hasta la ocurrencia del evento” la cual es continua</li>
+<li>El enunciado no tiene sentido, hay más de una variable de interés, por ejemplo: género, edad e incluso la distribución asociada.</li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>Si un estudio termina antes de que un individuo desarrolle la falla, entonces su supervivencia está censurada.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Cierto, se trata de una censura tipo I</li>
+<li>Un estudio no puede terminar si no fallaron todos los individuos</li>
+<li>Falso, es truncada porque t &lt; U, donde t es el tiempo del estudio y U es el tiempo de falla</li>
+<li>No se puede concluir, hace falta conocer las características estudio</li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li>Una empresa encargada del transporte de frutas via mar ́ıtima a mercados internacionales desea medir el tiempo de maduración de los aguacates para poder asegurar que estos lleguen en ́optimo estado a su destino. La empresa tiene 3 diferentes propuestas para realizar este estudio. Se deben analizar las tres propuestas en función del tipo de censura y/o truncamiento que presentar ́an los datos recolectados para con ello escoger la mejor propuesta.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>El estudio 1 propone tomar la medición inicial del nivel de maduración en el momento en que se cargan los aguacates en el barco y una segunda medición al llegar al puerto de destino</li>
+<li>El estudio 2 propone tomar la medición inicial del nivel de maduración en el momento de corte de la fruta con los agricultores, una segunda medición al entrar en la cámara de refrigeración en el barco, después tomar mediciones cada cinco dias hasta llegar al destino, en donde se toma una medición final</li>
+<li>El estudio 3 propone replicar las condiciones del transporte en una cámara frigorífica en el puerto de salida. Al llegar los aguacates al puerto se relaiza una selección de los 1000 menos maduros, estos se introducen en el frigorífico y se tomarán mediciones de la maduración diario por un periódo de 30 dias.
+Después de analizar las propuestas, diga que estudio propondría a la empresa llevar a cabo y por que.</li>
 </ol>
 
 </div>
@@ -263,7 +323,6 @@
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -282,6 +341,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "github", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -302,6 +362,10 @@ gitbook.start({
 "text": null
 },
 "download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }
@@ -315,7 +379,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

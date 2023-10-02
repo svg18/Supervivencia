@@ -5,23 +5,23 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 4 Parámetros Poblacionales | Modelos de Supervivencia</title>
-  <meta name="description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
-  <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
+  <meta name="description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 4 Parámetros Poblacionales | Modelos de Supervivencia" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
   
-  <meta property="og:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
-  <meta name="github-repo" content="CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
+  <meta property="og:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="github-repo" content="svg18/Supervivencia" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Capítulo 4 Parámetros Poblacionales | Modelos de Supervivencia" />
   
-  <meta name="twitter:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="twitter:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
 
 <meta name="author" content="Sofía Villers Gómez" />
+<meta name="author" content="David Alberto Mateos Montes de Oca" />
 <meta name="author" content="Carlos Fernando Vásquez Guerra" />
 <meta name="author" content="Luis Angel Ramirez Teodoro" />
 
@@ -34,8 +34,8 @@
   
 <link rel="prev" href="funciones-para-el-análisis-de-supervivencia.html"/>
 <link rel="next" href="modelos-paramétricos.html"/>
-<script src="libs/header-attrs-2.6.4/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,9 +51,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
@@ -63,6 +63,32 @@
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -98,7 +124,10 @@
 <li class="chapter" data-level="1.4" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-izquierda"><i class="fa fa-check"></i><b>1.4</b> Censura por la Izquierda</a></li>
 <li class="chapter" data-level="1.5" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-intervalos"><i class="fa fa-check"></i><b>1.5</b> Censura por Intervalos</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="datos-truncados.html"><a href="datos-truncados.html"><i class="fa fa-check"></i><b>2</b> Datos Truncados</a></li>
+<li class="chapter" data-level="2" data-path="datos-truncados.html"><a href="datos-truncados.html"><i class="fa fa-check"></i><b>2</b> Datos Truncados</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="datos-truncados.html"><a href="datos-truncados.html#ejercicios"><i class="fa fa-check"></i><b>2.1</b> Ejercicios</a></li>
+</ul></li>
 <li class="part"><span><b>II Estudio paramétrico</b></span></li>
 <li class="chapter" data-level="3" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html"><i class="fa fa-check"></i><b>3</b> Funciones para el Análisis de Supervivencia</a>
 <ul>
@@ -140,6 +169,7 @@
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-6"><i class="fa fa-check"></i>Caso continuo</a></li>
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-6"><i class="fa fa-check"></i>Caso discreto</a></li>
 </ul></li>
+<li class="chapter" data-level="4.5" data-path="par-poblacionales.html"><a href="par-poblacionales.html#ejercicios-1"><i class="fa fa-check"></i><b>4.5</b> Ejercicios</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html"><i class="fa fa-check"></i><b>5</b> Modelos Paramétricos</a>
 <ul>
@@ -163,6 +193,7 @@
 <li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-exponencial-1"><i class="fa fa-check"></i>Modelo Exponencial</a></li>
 <li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-weibull-1"><i class="fa fa-check"></i>Modelo Weibull</a></li>
 </ul></li>
+<li class="chapter" data-level="6.8" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#ejercicios-2"><i class="fa fa-check"></i><b>6.8</b> Ejercicios</a></li>
 </ul></li>
 <li class="part"><span><b>III Estudio no paramétrico</b></span></li>
 <li class="chapter" data-level="7" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><i class="fa fa-check"></i><b>7</b> Modelos No Paramétricos para la Función de Supervivencia</a>
@@ -230,21 +261,21 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="par-poblacionales" class="section level1" number="4">
-<h1><span class="header-section-number">Capítulo 4</span> Parámetros Poblacionales</h1>
+<div id="par-poblacionales" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Capítulo 4</span> Parámetros Poblacionales<a href="par-poblacionales.html#par-poblacionales" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Si conocemos la distribución de <span class="math inline">\(T\)</span> (cuando sea posible) es importante extraer cierta información que nos ayude a sacar conclusiones sobre los tiempos de supervivencia; a saber, información sobre su(s) parámetro(s). Aunque es habitual pensar a <span class="math inline">\(T\)</span> como una variable aleatoria continua, a continuación presentaremos parámetros poblacionales en términos de la función de superviviencia para el caso continuo y discreto.</p>
-<div id="media" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Media</h2>
-<div id="caso-continuo-3" class="section level3 unnumbered">
-<h3>Caso continuo</h3>
+<div id="media" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Media<a href="par-poblacionales.html#media" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="caso-continuo-3" class="section level3 unnumbered hasAnchor">
+<h3>Caso continuo<a href="par-poblacionales.html#caso-continuo-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para el caso continuo se tiene:</p>
 <p><span class="math display">\[
 \mu=\mathbb{E}[T]=\int_{0}^{\infty}\mathbb{P}(T&gt;t)=\int_{0}^{\infty}S(t)dt
 \]</span></p>
 <p>La demostración se queda como ejercicio al alumno.</p>
 </div>
-<div id="caso-discreto-3" class="section level3 unnumbered">
-<h3>Caso discreto</h3>
+<div id="caso-discreto-3" class="section level3 unnumbered hasAnchor">
+<h3>Caso discreto<a href="par-poblacionales.html#caso-discreto-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><span class="math inline">\(\mu\)</span> en este caso es de la forma:</p>
 <p><span class="math display">\[
 \mu=\mathbb{E}[T]=\sum_{k=1}^{\infty}u_kf(u_k)=\sum_{k=1}^{\infty}S(u_k)
@@ -252,10 +283,10 @@
 <p>La demostración se queda como ejercicio al alumno.</p>
 </div>
 </div>
-<div id="varianza" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Varianza</h2>
-<div id="caso-continuo-4" class="section level3 unnumbered">
-<h3>Caso continuo</h3>
+<div id="varianza" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Varianza<a href="par-poblacionales.html#varianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="caso-continuo-4" class="section level3 unnumbered hasAnchor">
+<h3>Caso continuo<a href="par-poblacionales.html#caso-continuo-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para este caso la varianza se ve como:</p>
 <p><span class="math display">\[
   \sigma^2=Var[T]=\mathbb{E}[T^2]-(\mathbb{E}[T])^2=2\int_{0}^{\infty}tS(t)dt-\left(\int_{0}^{\infty}S(t)dt\right)^2
@@ -269,8 +300,8 @@
 \mathbb{E}[T]=\int_{0}^{\infty}S(t)dt
 \]</span></p>
 </div>
-<div id="caso-discreto-4" class="section level3 unnumbered">
-<h3>Caso discreto</h3>
+<div id="caso-discreto-4" class="section level3 unnumbered hasAnchor">
+<h3>Caso discreto<a href="par-poblacionales.html#caso-discreto-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>De manera similar:</p>
 <p><span class="math display">\[
   \sigma^2=Var[T]=\mathbb{E}[T^2]-(\mathbb{E}[T])^2=2\sum_{k=1}^{\infty}u_kS(u_k)-\left(\sum_{k=1}^{\infty}S(u_k)\right)^2
@@ -278,29 +309,29 @@
 <p>La demostración se queda de ejercicio al alumno.</p>
 </div>
 </div>
-<div id="función-de-media-residual" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Función de Media Residual</h2>
+<div id="función-de-media-residual" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Función de Media Residual<a href="par-poblacionales.html#función-de-media-residual" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Para individuos de edad <span class="math inline">\(x\)</span> este parámetro, denotado por <span class="math inline">\(mr(x)\)</span>, mide la esperanza de vida residual; esto es, “la esperanza de vida que les queda a partir de la edad <span class="math inline">\(x\)</span>”.</p>
-<div id="caso-continuo-5" class="section level3 unnumbered">
-<h3>Caso continuo</h3>
+<div id="caso-continuo-5" class="section level3 unnumbered hasAnchor">
+<h3>Caso continuo<a href="par-poblacionales.html#caso-continuo-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Se define como:</p>
 <p><span class="math display">\[
 mr(x)=\mathbb{E}[T-x|T&gt;x]=\frac{\mathbb{E}[T-x]}{\mathbb{P}(T&gt;x)}=\frac{\int_x^{\infty}(t-x)f(t)dt}{S(x)}=\frac{\int_x^{\infty}S(t)dt}{S(x)}
 \]</span></p>
 </div>
-<div id="caso-discreto-5" class="section level3 unnumbered">
-<h3>Caso discreto</h3>
+<div id="caso-discreto-5" class="section level3 unnumbered hasAnchor">
+<h3>Caso discreto<a href="par-poblacionales.html#caso-discreto-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para este caso es:</p>
 <p><span class="math display">\[
 mr(u_x)=\frac{\sum_{k=x}^{\infty}S(u_k)}{S(u_x)}
 \]</span></p>
 </div>
 </div>
-<div id="cuantiles-de-orden-p" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Cuantiles de Orden <span class="math inline">\(p\)</span></h2>
+<div id="cuantiles-de-orden-p" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Cuantiles de Orden <span class="math inline">\(p\)</span><a href="par-poblacionales.html#cuantiles-de-orden-p" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>El cálculo de diversos cuantiles nos permitirá hacer comparaciones entre diversos grupos de sujetos, además de obtener información sobre los tiempos de falla, por ejemplo, el tiempo mediano de falla (a veces es mejor el cálculo de la mediana que la media).</p>
-<div id="caso-continuo-6" class="section level3 unnumbered">
-<h3>Caso continuo</h3>
+<div id="caso-continuo-6" class="section level3 unnumbered hasAnchor">
+<h3>Caso continuo<a href="par-poblacionales.html#caso-continuo-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>El cuantil o percentil, <span class="math inline">\(t_p\)</span>, de orden <span class="math inline">\(p\)</span> de la variable aleatoria continua <span class="math inline">\(T\)</span> será aquel que:</p>
 <p><span class="math display">\[
 S(t_p)=1-p
@@ -310,14 +341,14 @@ S(t_p)=1-p
 S(t_{0.5})=0.5
 \]</span></p>
 </div>
-<div id="caso-discreto-6" class="section level3 unnumbered">
-<h3>Caso discreto</h3>
+<div id="caso-discreto-6" class="section level3 unnumbered hasAnchor">
+<h3>Caso discreto<a href="par-poblacionales.html#caso-discreto-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En este caso <span class="math inline">\(t_p\)</span> es:
 <span class="math display">\[
 t_p=inf\{t: S(t) \leq  1-p\}
 \]</span></p>
-<div id="ejemplo-1-1" class="section level4 unnumbered">
-<h4>Ejemplo 1</h4>
+<div id="ejemplo-1-1" class="section level4 unnumbered hasAnchor">
+<h4>Ejemplo 1<a href="par-poblacionales.html#ejemplo-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Siguiendo el ejemplo presentado en la sección <a href="funciones-para-el-análisis-de-supervivencia.html#RiskFunction">3.2</a>, se tiene lo siguiente:</p>
 <ul>
 <li>Función de supervivencia de <span class="math inline">\(T\)</span>: <span class="math inline">\(S(t) = \mathbb{P}(T&gt;t)=\left\{\begin{array}{ll}1 &amp; \mbox{si }t=1\\\frac{2}{3} &amp; \mbox{si } t=2\\\frac{1}{3} &amp; \mbox{si } t = 3\\0 &amp; \mbox{si }t&gt;3\end{array}\right.\)</span></li>
@@ -329,8 +360,8 @@ t_p=inf\{t: S(t) \leq  1-p\}
 <p>Con la finalidad de aclarar la distribución de los cuantiles en una distribución discreta, se dejan las siguientes gráficas correspondientes a este ejercicio.</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="ejemplo-2-1" class="section level4 unnumbered">
-<h4>Ejemplo 2</h4>
+<div id="ejemplo-2-1" class="section level4 unnumbered hasAnchor">
+<h4>Ejemplo 2<a href="par-poblacionales.html#ejemplo-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Sea <span class="math inline">\(T\)</span> una v.a con distribución uniforme continua en <span class="math inline">\((0,100)\)</span> unidades días.</p>
 <ol style="list-style-type: decimal">
 <li>Encontrar la función de supervivencia y evaluar la supervivencia para 30 y 35 años.</li>
@@ -367,9 +398,44 @@ Otra solución</li>
 <p><span class="math display">\[
 \implies mrl(75) = \frac{\int_{75}^{100}(t-75)\frac{1}{100}dt}{S(75)} = \frac{\int_{75}^{100}S(75)dt}{S(75)} = 12.5
 \]</span></p>
+</div>
+</div>
+</div>
+<div id="ejercicios-1" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Ejercicios<a href="par-poblacionales.html#ejercicios-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Se tiene una variable aleatoria <span class="math inline">\(X\)</span> con función de densidad <span class="math inline">\(f(x)=(1+2x^2)e^{-2x}\)</span> <span class="math inline">\(x&gt;0\)</span></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Determine la función de supervivencia <span class="math inline">\(S(x)\)</span></li>
+<li>Determine la función de riesgo <span class="math inline">\(h(x)\)</span></li>
+<li>Determine la función de media residual <span class="math inline">\(mr(x)\)</span></li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>De los siguientes ¿cuál(es) no podría servir como un modelo de supervivencia?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(S\left(t\right)=e{}^{\left[t-0.7\left(2^{t}-1\right)\right]}\)</span></li>
+<li><span class="math inline">\(S\left(t\right)=\left(1-t\right)^{-2}\)</span></li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li>Suponga que la curva de supervivencia estimada de un conjunto de datos
+es la siguiente:\
+<img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Calcule la esperanza de vida residual para <span class="math inline">\(t=15\)</span>.</li>
+<li>Calcule el cuantíl correspondiente a una supervivencia del 80%</li>
+</ol>
+<ol start="4" style="list-style-type: decimal">
+<li>Suponga que <span class="math inline">\(Z\)</span> tiene la siguiente función de riesgo <span class="math inline">\(h(z)=\frac{1}{100-z}\)</span> <span class="math inline">\(0&lt;z&lt;100\)</span></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Determine la función de supervivencia <span class="math inline">\(S(x)\)</span></li>
+<li>Determine la función de distribución <span class="math inline">\(F(x)\)</span></li>
+<li>Determine la función de probabilidad <span class="math inline">\(f(x)\)</span></li>
+</ol>
 
-</div>
-</div>
 </div>
 </div>
             </section>
@@ -382,7 +448,6 @@ Otra solución</li>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -401,6 +466,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "github", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -421,6 +487,10 @@ gitbook.start({
 "text": null
 },
 "download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }
@@ -434,7 +504,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

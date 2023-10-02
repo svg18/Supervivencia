@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Modelos de Supervivencia</title>
   <meta name="description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Modelos de Supervivencia" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://github.com/svg18/Libro-Supervivencia" />
   
   <meta property="og:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="github-repo" content="svg18/Supervivencia" />
@@ -35,7 +34,6 @@
   
 
 <link rel="next" href="motivación.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -53,13 +51,44 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -86,6 +115,7 @@
 </ul></li>
 <li class="part"><span><b>I Todo es cuestion de tiempo</b></span></li>
 <li class="chapter" data-level="" data-path="motivación.html"><a href="motivación.html"><i class="fa fa-check"></i>Motivación</a></li>
+<li class="chapter" data-level="" data-path="análisis-de-supervivencia.html"><a href="análisis-de-supervivencia.html"><i class="fa fa-check"></i>Análisis de Supervivencia</a></li>
 <li class="chapter" data-level="1" data-path="datos-censurados.html"><a href="datos-censurados.html"><i class="fa fa-check"></i><b>1</b> Datos Censurados</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-derecha-tipo-i"><i class="fa fa-check"></i><b>1.1</b> Censura por la Derecha Tipo I</a></li>
@@ -94,116 +124,122 @@
 <li class="chapter" data-level="1.4" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-izquierda"><i class="fa fa-check"></i><b>1.4</b> Censura por la Izquierda</a></li>
 <li class="chapter" data-level="1.5" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-intervalos"><i class="fa fa-check"></i><b>1.5</b> Censura por Intervalos</a></li>
 </ul></li>
-<li class="part"><span><b>II Estudio paramétrico</b></span></li>
-<li class="chapter" data-level="2" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html"><i class="fa fa-check"></i><b>2</b> Funciones para el Análisis de Supervivencia</a>
+<li class="chapter" data-level="2" data-path="datos-truncados.html"><a href="datos-truncados.html"><i class="fa fa-check"></i><b>2</b> Datos Truncados</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#función-de-supervivencia"><i class="fa fa-check"></i><b>2.1</b> Función de Supervivencia</a>
+<li class="chapter" data-level="2.1" data-path="datos-truncados.html"><a href="datos-truncados.html#ejercicios"><i class="fa fa-check"></i><b>2.1</b> Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>II Estudio paramétrico</b></span></li>
+<li class="chapter" data-level="3" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html"><i class="fa fa-check"></i><b>3</b> Funciones para el Análisis de Supervivencia</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#función-de-supervivencia"><i class="fa fa-check"></i><b>3.1</b> Función de Supervivencia</a>
 <ul>
 <li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo"><i class="fa fa-check"></i>Caso continuo</a></li>
 <li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto"><i class="fa fa-check"></i>Caso discreto</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#RiskFunction"><i class="fa fa-check"></i><b>2.2</b> Función de Riesgo</a>
+<li class="chapter" data-level="3.2" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#RiskFunction"><i class="fa fa-check"></i><b>3.2</b> Función de Riesgo</a>
 <ul>
 <li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo-1"><i class="fa fa-check"></i>Caso continuo</a></li>
 <li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto-1"><i class="fa fa-check"></i>Caso discreto</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#función-de-riesgo-acumulado"><i class="fa fa-check"></i><b>2.3</b> Función de Riesgo Acumulado</a>
+<li class="chapter" data-level="3.3" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#función-de-riesgo-acumulado"><i class="fa fa-check"></i><b>3.3</b> Función de Riesgo Acumulado</a>
 <ul>
 <li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo-2"><i class="fa fa-check"></i>Caso continuo</a></li>
 <li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto-2"><i class="fa fa-check"></i>Caso discreto</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="par-poblacionales.html"><a href="par-poblacionales.html"><i class="fa fa-check"></i><b>3</b> Parámetros Poblacionales</a>
+<li class="chapter" data-level="4" data-path="par-poblacionales.html"><a href="par-poblacionales.html"><i class="fa fa-check"></i><b>4</b> Parámetros Poblacionales</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="par-poblacionales.html"><a href="par-poblacionales.html#media"><i class="fa fa-check"></i><b>3.1</b> Media</a>
+<li class="chapter" data-level="4.1" data-path="par-poblacionales.html"><a href="par-poblacionales.html#media"><i class="fa fa-check"></i><b>4.1</b> Media</a>
 <ul>
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-3"><i class="fa fa-check"></i>Caso continuo</a></li>
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-3"><i class="fa fa-check"></i>Caso discreto</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="par-poblacionales.html"><a href="par-poblacionales.html#varianza"><i class="fa fa-check"></i><b>3.2</b> Varianza</a>
+<li class="chapter" data-level="4.2" data-path="par-poblacionales.html"><a href="par-poblacionales.html#varianza"><i class="fa fa-check"></i><b>4.2</b> Varianza</a>
 <ul>
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-4"><i class="fa fa-check"></i>Caso continuo</a></li>
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-4"><i class="fa fa-check"></i>Caso discreto</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="par-poblacionales.html"><a href="par-poblacionales.html#función-de-media-residual"><i class="fa fa-check"></i><b>3.3</b> Función de Media Residual</a>
+<li class="chapter" data-level="4.3" data-path="par-poblacionales.html"><a href="par-poblacionales.html#función-de-media-residual"><i class="fa fa-check"></i><b>4.3</b> Función de Media Residual</a>
 <ul>
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-5"><i class="fa fa-check"></i>Caso continuo</a></li>
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-5"><i class="fa fa-check"></i>Caso discreto</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="par-poblacionales.html"><a href="par-poblacionales.html#cuantiles-de-orden-p"><i class="fa fa-check"></i><b>3.4</b> Cuantiles de Orden <span class="math inline">\(p\)</span></a>
+<li class="chapter" data-level="4.4" data-path="par-poblacionales.html"><a href="par-poblacionales.html#cuantiles-de-orden-p"><i class="fa fa-check"></i><b>4.4</b> Cuantiles de Orden <span class="math inline">\(p\)</span></a>
 <ul>
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-6"><i class="fa fa-check"></i>Caso continuo</a></li>
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-6"><i class="fa fa-check"></i>Caso discreto</a></li>
 </ul></li>
+<li class="chapter" data-level="4.5" data-path="par-poblacionales.html"><a href="par-poblacionales.html#ejercicios-1"><i class="fa fa-check"></i><b>4.5</b> Ejercicios</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html"><i class="fa fa-check"></i><b>4</b> Modelos Paramétricos</a>
+<li class="chapter" data-level="5" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html"><i class="fa fa-check"></i><b>5</b> Modelos Paramétricos</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-exponencial"><i class="fa fa-check"></i><b>4.1</b> Modelo Exponencial</a></li>
-<li class="chapter" data-level="4.2" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-weibull"><i class="fa fa-check"></i><b>4.2</b> Modelo Weibull</a></li>
-<li class="chapter" data-level="4.3" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-log-normal"><i class="fa fa-check"></i><b>4.3</b> Modelo Log-Normal</a></li>
-<li class="chapter" data-level="4.4" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-log-logístico"><i class="fa fa-check"></i><b>4.4</b> Modelo Log-Logístico</a></li>
-<li class="chapter" data-level="4.5" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-gamma"><i class="fa fa-check"></i><b>4.5</b> Modelo Gamma</a></li>
-<li class="chapter" data-level="4.6" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-gamma-generalizada"><i class="fa fa-check"></i><b>4.6</b> Modelo Gamma Generalizada</a></li>
+<li class="chapter" data-level="5.1" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-exponencial"><i class="fa fa-check"></i><b>5.1</b> Modelo Exponencial</a></li>
+<li class="chapter" data-level="5.2" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-weibull"><i class="fa fa-check"></i><b>5.2</b> Modelo Weibull</a></li>
+<li class="chapter" data-level="5.3" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-log-normal"><i class="fa fa-check"></i><b>5.3</b> Modelo Log-Normal</a></li>
+<li class="chapter" data-level="5.4" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-log-logístico"><i class="fa fa-check"></i><b>5.4</b> Modelo Log-Logístico</a></li>
+<li class="chapter" data-level="5.5" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-gamma"><i class="fa fa-check"></i><b>5.5</b> Modelo Gamma</a></li>
+<li class="chapter" data-level="5.6" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-gamma-generalizada"><i class="fa fa-check"></i><b>5.6</b> Modelo Gamma Generalizada</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><i class="fa fa-check"></i><b>5</b> La Función de Verosimilitud con Censura y Truncamiento</a>
+<li class="chapter" data-level="6" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><i class="fa fa-check"></i><b>6</b> La Función de Verosimilitud con Censura y Truncamiento</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#caso-general"><i class="fa fa-check"></i><b>5.1</b> Caso General</a></li>
-<li class="chapter" data-level="5.2" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#censura-por-la-derecha-tipo-i-1"><i class="fa fa-check"></i><b>5.2</b> Censura por la Derecha Tipo I</a></li>
-<li class="chapter" data-level="5.3" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#censura-por-la-derecha-tipo-ii-1"><i class="fa fa-check"></i><b>5.3</b> Censura por la Derecha Tipo II</a></li>
-<li class="chapter" data-level="5.4" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#censura-aleatoria"><i class="fa fa-check"></i><b>5.4</b> Censura Aleatoria</a></li>
-<li class="chapter" data-level="5.5" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#truncamiento-por-la-izquierda"><i class="fa fa-check"></i><b>5.5</b> Truncamiento por la Izquierda</a></li>
-<li class="chapter" data-level="5.6" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#truncamiento-por-la-derecha"><i class="fa fa-check"></i><b>5.6</b> Truncamiento por la Derecha</a></li>
-<li class="chapter" data-level="5.7" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#estimaciones-para-algunos-modelos"><i class="fa fa-check"></i><b>5.7</b> Estimaciones para Algunos Modelos</a>
+<li class="chapter" data-level="6.1" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#caso-general"><i class="fa fa-check"></i><b>6.1</b> Caso General</a></li>
+<li class="chapter" data-level="6.2" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#censura-por-la-derecha-tipo-i-1"><i class="fa fa-check"></i><b>6.2</b> Censura por la Derecha Tipo I</a></li>
+<li class="chapter" data-level="6.3" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#censura-por-la-derecha-tipo-ii-1"><i class="fa fa-check"></i><b>6.3</b> Censura por la Derecha Tipo II</a></li>
+<li class="chapter" data-level="6.4" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#censura-aleatoria"><i class="fa fa-check"></i><b>6.4</b> Censura Aleatoria</a></li>
+<li class="chapter" data-level="6.5" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#truncamiento-por-la-izquierda"><i class="fa fa-check"></i><b>6.5</b> Truncamiento por la Izquierda</a></li>
+<li class="chapter" data-level="6.6" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#truncamiento-por-la-derecha"><i class="fa fa-check"></i><b>6.6</b> Truncamiento por la Derecha</a></li>
+<li class="chapter" data-level="6.7" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#estimaciones-para-algunos-modelos"><i class="fa fa-check"></i><b>6.7</b> Estimaciones para Algunos Modelos</a>
 <ul>
 <li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-exponencial-1"><i class="fa fa-check"></i>Modelo Exponencial</a></li>
 <li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-weibull-1"><i class="fa fa-check"></i>Modelo Weibull</a></li>
 </ul></li>
+<li class="chapter" data-level="6.8" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#ejercicios-2"><i class="fa fa-check"></i><b>6.8</b> Ejercicios</a></li>
 </ul></li>
 <li class="part"><span><b>III Estudio no paramétrico</b></span></li>
-<li class="chapter" data-level="6" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><i class="fa fa-check"></i><b>6</b> Modelos No Paramétricos para la Función de Supervivencia</a>
+<li class="chapter" data-level="7" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><i class="fa fa-check"></i><b>7</b> Modelos No Paramétricos para la Función de Supervivencia</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#método-actuarial-tabla-de-vida"><i class="fa fa-check"></i><b>6.1</b> Método Actuarial (Tabla de Vida)</a></li>
-<li class="chapter" data-level="6.2" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#estimador-producto-límite-kaplan-meier"><i class="fa fa-check"></i><b>6.2</b> Estimador Producto-Límite (Kaplan-Meier)</a>
+<li class="chapter" data-level="7.1" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#método-actuarial-tabla-de-vida"><i class="fa fa-check"></i><b>7.1</b> Método Actuarial (Tabla de Vida)</a></li>
+<li class="chapter" data-level="7.2" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#estimador-producto-límite-kaplan-meier"><i class="fa fa-check"></i><b>7.2</b> Estimador Producto-Límite (Kaplan-Meier)</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#construcción-del-estimador-k-m"><i class="fa fa-check"></i><b>6.2.1</b> Construcción del Estimador K-M</a></li>
+<li class="chapter" data-level="7.2.1" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#construcción-del-estimador-k-m"><i class="fa fa-check"></i><b>7.2.1</b> Construcción del Estimador K-M</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><i class="fa fa-check"></i><b>7</b> Algunas Estimaciones sobre Modelos No Paramétricos</a>
+<li class="chapter" data-level="8" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><i class="fa fa-check"></i><b>8</b> Algunas Estimaciones sobre Modelos No Paramétricos</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-de-la-varianza-para-el-estimador-de-st"><i class="fa fa-check"></i><b>7.1</b> Estimación de la Varianza para el Estimador de <span class="math inline">\(S(t)\)</span></a>
+<li class="chapter" data-level="8.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-de-la-varianza-para-el-estimador-de-st"><i class="fa fa-check"></i><b>8.1</b> Estimación de la Varianza para el Estimador de <span class="math inline">\(S(t)\)</span></a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#tabla-de-vida"><i class="fa fa-check"></i><b>7.1.1</b> Tabla de Vida</a></li>
-<li class="chapter" data-level="7.1.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#kaplan-meier"><i class="fa fa-check"></i><b>7.1.2</b> Kaplan-Meier</a></li>
+<li class="chapter" data-level="8.1.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#tabla-de-vida"><i class="fa fa-check"></i><b>8.1.1</b> Tabla de Vida</a></li>
+<li class="chapter" data-level="8.1.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#kaplan-meier"><i class="fa fa-check"></i><b>8.1.2</b> Kaplan-Meier</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimadores-de-la-función-de-riesgo-acumulada"><i class="fa fa-check"></i><b>7.2</b> Estimadores de la Función de Riesgo Acumulada</a></li>
-<li class="chapter" data-level="7.3" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-puntual-de-la-media"><i class="fa fa-check"></i><b>7.3</b> Estimación Puntual de la Media</a></li>
-<li class="chapter" data-level="7.4" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-de-cuantiles"><i class="fa fa-check"></i><b>7.4</b> Estimación de Cuantiles</a></li>
-<li class="chapter" data-level="7.5" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#bandas-de-confianza-para-la-función-de-supervivencia"><i class="fa fa-check"></i><b>7.5</b> Bandas de Confianza para la Función de Supervivencia</a></li>
-<li class="chapter" data-level="7.6" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#diagnóstico-para-el-uso-de-modelos-paramétricos"><i class="fa fa-check"></i><b>7.6</b> Diagnóstico para el Uso de Modelos Paramétricos</a>
+<li class="chapter" data-level="8.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimadores-de-la-función-de-riesgo-acumulada"><i class="fa fa-check"></i><b>8.2</b> Estimadores de la Función de Riesgo Acumulada</a></li>
+<li class="chapter" data-level="8.3" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-puntual-de-la-media"><i class="fa fa-check"></i><b>8.3</b> Estimación Puntual de la Media</a></li>
+<li class="chapter" data-level="8.4" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-de-cuantiles"><i class="fa fa-check"></i><b>8.4</b> Estimación de Cuantiles</a></li>
+<li class="chapter" data-level="8.5" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#bandas-de-confianza-para-la-función-de-supervivencia"><i class="fa fa-check"></i><b>8.5</b> Bandas de Confianza para la Función de Supervivencia</a></li>
+<li class="chapter" data-level="8.6" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#diagnóstico-para-el-uso-de-modelos-paramétricos"><i class="fa fa-check"></i><b>8.6</b> Diagnóstico para el Uso de Modelos Paramétricos</a>
 <ul>
-<li class="chapter" data-level="7.6.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráficas-de-las-funciones-de-supervivencia"><i class="fa fa-check"></i><b>7.6.1</b> Gráficas de las Funciones de Supervivencia</a></li>
-<li class="chapter" data-level="7.6.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráfica-p-p"><i class="fa fa-check"></i><b>7.6.2</b> Gráfica <span class="math inline">\(P-P\)</span></a></li>
-<li class="chapter" data-level="7.6.3" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráfica-q-q"><i class="fa fa-check"></i><b>7.6.3</b> Gráfica <span class="math inline">\(Q-Q\)</span></a></li>
-<li class="chapter" data-level="7.6.4" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#linearización-de-la-función-de-supervivencia"><i class="fa fa-check"></i><b>7.6.4</b> Linearización de la Función de Supervivencia</a></li>
+<li class="chapter" data-level="8.6.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráficas-de-las-funciones-de-supervivencia"><i class="fa fa-check"></i><b>8.6.1</b> Gráficas de las Funciones de Supervivencia</a></li>
+<li class="chapter" data-level="8.6.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráfica-p-p"><i class="fa fa-check"></i><b>8.6.2</b> Gráfica <span class="math inline">\(P-P\)</span></a></li>
+<li class="chapter" data-level="8.6.3" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráfica-q-q"><i class="fa fa-check"></i><b>8.6.3</b> Gráfica <span class="math inline">\(Q-Q\)</span></a></li>
+<li class="chapter" data-level="8.6.4" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#linearización-de-la-función-de-supervivencia"><i class="fa fa-check"></i><b>8.6.4</b> Linearización de la Función de Supervivencia</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>8</b> Pruebas de Hipótesis</a>
+<li class="chapter" data-level="9" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>9</b> Pruebas de Hipótesis</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#comparación-de-1-población"><i class="fa fa-check"></i><b>8.1</b> Comparación de 1 población</a></li>
-<li class="chapter" data-level="8.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#prueba-log-rank"><i class="fa fa-check"></i><b>8.2</b> Prueba Log-Rank</a></li>
-<li class="chapter" data-level="8.3" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#prueba-generalizada-wilcoxon"><i class="fa fa-check"></i><b>8.3</b> Prueba Generalizada Wilcoxon</a></li>
-<li class="chapter" data-level="8.4" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#comparación-de-m-poblaciones"><i class="fa fa-check"></i><b>8.4</b> Comparación de <span class="math inline">\(m\)</span> Poblaciones</a></li>
+<li class="chapter" data-level="9.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#comparación-de-1-población"><i class="fa fa-check"></i><b>9.1</b> Comparación de 1 población</a></li>
+<li class="chapter" data-level="9.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#prueba-log-rank"><i class="fa fa-check"></i><b>9.2</b> Prueba Log-Rank</a></li>
+<li class="chapter" data-level="9.3" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#prueba-generalizada-wilcoxon"><i class="fa fa-check"></i><b>9.3</b> Prueba Generalizada Wilcoxon</a></li>
+<li class="chapter" data-level="9.4" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#comparación-de-m-poblaciones"><i class="fa fa-check"></i><b>9.4</b> Comparación de <span class="math inline">\(m\)</span> Poblaciones</a></li>
 </ul></li>
 <li class="part"><span><b>IV Lleno de riesgos</b></span></li>
-<li class="chapter" data-level="9" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html"><i class="fa fa-check"></i><b>9</b> Modelo de Riesgos Proporcionales</a>
+<li class="chapter" data-level="10" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html"><i class="fa fa-check"></i><b>10</b> Modelo de Riesgos Proporcionales</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#inferencia-sobre-theta"><i class="fa fa-check"></i><b>9.1</b> Inferencia sobre <span class="math inline">\(\theta\)</span></a></li>
-<li class="chapter" data-level="9.2" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimación-semiparamétrica-verosimilitud-parcial."><i class="fa fa-check"></i><b>9.2</b> Estimación Semiparamétrica (Verosimilitud parcial).</a></li>
-<li class="chapter" data-level="9.3" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimador-de-breslow-h_0t-y-s_0t"><i class="fa fa-check"></i><b>9.3</b> Estimador de Breslow (<span class="math inline">\(H_{0}(t)\)</span> y <span class="math inline">\(S_{0}(t)\)</span>)</a></li>
-<li class="chapter" data-level="9.4" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#significancia-de-los-parámetros-prueba-de-wald"><i class="fa fa-check"></i><b>9.4</b> Significancia de los parámetros (Prueba de Wald)</a></li>
-<li class="chapter" data-level="9.5" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimación-de-st-después-de-obtener-las-estimaciones-de-los-parámetros-del-modelo-de-cox"><i class="fa fa-check"></i><b>9.5</b> Estimación de <span class="math inline">\(S(t)\)</span> después de obtener las estimaciones de los parámetros del modelo de Cox</a></li>
-<li class="chapter" data-level="9.6" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#verificación-de-ajuste-de-modelo"><i class="fa fa-check"></i><b>9.6</b> Verificación de ajuste de Modelo</a></li>
-<li class="chapter" data-level="9.7" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#extensión-del-modelo-de-cox-a-covariables-dependientes-del-tiempo"><i class="fa fa-check"></i><b>9.7</b> Extensión del modelo de Cox a covariables dependientes del tiempo</a></li>
+<li class="chapter" data-level="10.1" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#inferencia-sobre-theta"><i class="fa fa-check"></i><b>10.1</b> Inferencia sobre <span class="math inline">\(\theta\)</span></a></li>
+<li class="chapter" data-level="10.2" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimación-semiparamétrica-verosimilitud-parcial."><i class="fa fa-check"></i><b>10.2</b> Estimación Semiparamétrica (Verosimilitud parcial).</a></li>
+<li class="chapter" data-level="10.3" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimador-de-breslow-h_0t-y-s_0t"><i class="fa fa-check"></i><b>10.3</b> Estimador de Breslow (<span class="math inline">\(H_{0}(t)\)</span> y <span class="math inline">\(S_{0}(t)\)</span>)</a></li>
+<li class="chapter" data-level="10.4" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#significancia-de-los-parámetros-prueba-de-wald"><i class="fa fa-check"></i><b>10.4</b> Significancia de los parámetros (Prueba de Wald)</a></li>
+<li class="chapter" data-level="10.5" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimación-de-st-después-de-obtener-las-estimaciones-de-los-parámetros-del-modelo-de-cox"><i class="fa fa-check"></i><b>10.5</b> Estimación de <span class="math inline">\(S(t)\)</span> después de obtener las estimaciones de los parámetros del modelo de Cox</a></li>
+<li class="chapter" data-level="10.6" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#verificación-de-ajuste-de-modelo"><i class="fa fa-check"></i><b>10.6</b> Verificación de ajuste de Modelo</a></li>
+<li class="chapter" data-level="10.7" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#extensión-del-modelo-de-cox-a-covariables-dependientes-del-tiempo"><i class="fa fa-check"></i><b>10.7</b> Extensión del modelo de Cox a covariables dependientes del tiempo</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="_blank">Hecho con bookdown</a></li>
@@ -232,86 +268,90 @@
 <p class="author"><em>Carlos Fernando Vásquez Guerra</em></p>
 <p class="author"><em>Luis Angel Ramirez Teodoro</em></p>
 </div>
-<div id="prefacio" class="section level1 unnumbered">
-<h1>Prefacio</h1>
+<div id="prefacio" class="section level1 unnumbered hasAnchor">
+<h1>Prefacio<a href="index.html#prefacio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Primera edición del bookdown <em>Modelos de Supervivencia</em> para su uso en la materia Análisis de Supervivencia y Series de tiempo y sus relacionadas impartidas por los autores, así como para aquellos estudiantes que deseen adquirir el conocimiento pertinente de tal tópico.</p>
-<div id="objetivos" class="section level3 unnumbered">
-<h3>Objetivos</h3>
+<div id="objetivos" class="section level3 unnumbered hasAnchor">
+<h3>Objetivos<a href="index.html#objetivos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>Otorgar un material electrónico de calidad con el contenido referente al Análisis de Supervivencia como un esfuerzo de los autores para lograr un proceso de aprendizaje autodidacta por parte del alumno y así optimizar el tiempo, tanto de los profesores, como el de los alumnos.</p></li>
 <li><p>Plasmar las bases teóricas de esta rama de la estadística con el uso de ejemplos y contenido visual para un mejor entendimiento de cada subtema que se trate.</p></li>
 </ul>
 </div>
-<div id="estructura" class="section level3 unnumbered">
-<h3>Estructura</h3>
+<div id="estructura" class="section level3 unnumbered hasAnchor">
+<h3>Estructura<a href="index.html#estructura" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Este libro se compone de diez diferentes capítulos comenzando con los tipos de datos con el que se puede encontrar el lector en un estudio de supervivencia, dado esto, en el capítulo 3 se comienza con el estudio de las distintas funciones de supervivencia, así como las funciones que se deriven de esta, para los casos discreto y continuo. En el capítulo 4 se desglosa la teoría correspondiente a la obtención de parámetros poblacionales, como lo son la media y la varianza; para así en el capítulo 5 tratar modelos paramétricos comunes donde se asume una distribución para los datos a tratar y se obtienen las funciones vistas en los capítulos previos. El capítulo 6 abarca lo correspondiente a la obtención de la función de verosimilitud en datos censurados y truncados. Respecto a los capítulos 7 y 8 se da la teoría, junto a varios ejemplos, para el análisis no paramétrico en un análisis de supervivencia para que en el capítulo 9 se establezcan las pruebas de hipótesis pertinentes. Finalmente en el capítulo 10 se considera el modelo de riesgos proporcionales y se estudian las implicaciones sobre algunos tópicos de los capítulos anteriores.</p>
 <p>Se recomienda que la consulta de los capítulos se realice de acuerdo al índice, ya que a medida que se avanza en índice, se asume el conocimiento de los capítulos previos.</p>
 </div>
-<div id="detalles-técnicos" class="section level3 unnumbered">
-<h3>Detalles técnicos</h3>
+<div id="detalles-técnicos" class="section level3 unnumbered hasAnchor">
+<h3>Detalles técnicos<a href="index.html#detalles-técnicos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para la creación de este material se hizo uso de varios sistemas de software como LaTeX y CSS para el diseño de ciertos elementos. Todos los cálculos y gráficas fue creado con el lenguaje de programación <code>R</code> ya sea con el uso del paquete <code>base</code> o algún otro de los paquetes que se mencionan a continuación.</p>
 <style type="text/css">
 .scroll-300 {
   max-height: 300px;
 }
 </style>
-<pre class="scroll-300"><code>R version 4.1.0 (2021-05-18)
+<pre class="scroll-300"><code>R version 4.2.3 (2023-03-15 ucrt)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
 
 Matrix products: default
 
 locale:
-[1] LC_COLLATE=Spanish_Mexico.1252  LC_CTYPE=Spanish_Mexico.1252   
-[3] LC_MONETARY=Spanish_Mexico.1252 LC_NUMERIC=C                   
-[5] LC_TIME=Spanish_Mexico.1252    
+[1] LC_COLLATE=Spanish_Mexico.utf8  LC_CTYPE=Spanish_Mexico.utf8   
+[3] LC_MONETARY=Spanish_Mexico.utf8 LC_NUMERIC=C                   
+[5] LC_TIME=Spanish_Mexico.utf8    
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] survival_3.2-11  kableExtra_1.3.4 knitr_1.33       actuar_3.2-0    
- [5] shape_1.4.6      latex2exp_0.5.0  patchwork_1.1.1  devtools_2.4.2  
- [9] usethis_2.0.1    forcats_0.5.1    stringr_1.4.0    dplyr_1.0.7     
-[13] purrr_0.3.4      readr_2.0.0      tidyr_1.1.3      tibble_3.1.2    
-[17] ggplot2_3.3.5    tidyverse_1.3.1 
+ [1] survival_3.5-3      kableExtra_1.3.4    knitr_1.42          actuar_3.3-2       
+ [5] futurevisions_0.1.1 shape_1.4.6         latex2exp_0.9.6     patchwork_1.1.2    
+ [9] devtools_2.4.5      usethis_2.2.2       lubridate_1.9.2     forcats_1.0.0      
+[13] stringr_1.5.0       dplyr_1.1.0         purrr_1.0.1         readr_2.1.4        
+[17] tidyr_1.3.0         tibble_3.2.0        ggplot2_3.4.1       tidyverse_2.0.0    
 
 loaded via a namespace (and not attached):
- [1] fs_1.5.0          lubridate_1.7.10  webshot_0.5.2     httr_1.4.2       
- [5] rprojroot_2.0.2   tools_4.1.0       backports_1.2.1   bslib_0.3.0      
- [9] utf8_1.2.1        R6_2.5.0          DBI_1.1.1         colorspace_2.0-2 
-[13] withr_2.4.2       tidyselect_1.1.1  prettyunits_1.1.1 processx_3.5.2   
-[17] compiler_4.1.0    cli_3.0.0         rvest_1.0.1       xml2_1.3.2       
-[21] desc_1.3.0        bookdown_0.24     sass_0.4.0        scales_1.1.1     
-[25] callr_3.7.0       systemfonts_1.0.2 digest_0.6.27     rmarkdown_2.9    
-[29] svglite_2.0.0     pkgconfig_2.0.3   htmltools_0.5.2   sessioninfo_1.1.1
-[33] dbplyr_2.1.1      fastmap_1.1.0     rlang_0.4.11      readxl_1.3.1     
-[37] rstudioapi_0.13   jquerylib_0.1.4   generics_0.1.0    jsonlite_1.7.2   
-[41] magrittr_2.0.1    Matrix_1.3-4      Rcpp_1.0.7        munsell_0.5.0    
-[45] fansi_0.5.0       lifecycle_1.0.0   stringi_1.6.2     yaml_2.2.1       
-[49] expint_0.1-6      pkgbuild_1.2.0    grid_4.1.0        crayon_1.4.1     
-[53] lattice_0.20-44   splines_4.1.0     haven_2.4.1       hms_1.1.0        
-[57] ps_1.6.0          pillar_1.6.1      pkgload_1.2.2     reprex_2.0.0     
-[61] glue_1.4.2        evaluate_0.14     remotes_2.4.0     modelr_0.1.8     
-[65] vctrs_0.3.8       tzdb_0.1.2        testthat_3.0.4    cellranger_1.1.0 
-[69] gtable_0.3.0      assertthat_0.2.1  cachem_1.0.5      xfun_0.24        
-[73] broom_0.7.9       viridisLite_0.4.0 memoise_2.0.0     ellipsis_0.3.2   </code></pre>
+ [1] fs_1.6.1          bit64_4.0.5       webshot_0.5.5     httr_1.4.5       
+ [5] tools_4.2.3       profvis_0.3.8     bslib_0.4.2       utf8_1.2.3       
+ [9] R6_2.5.1          DBI_1.1.3         colorspace_2.1-0  urlchecker_1.0.1 
+[13] withr_2.5.0       tidyselect_1.2.0  prettyunits_1.1.1 processx_3.8.0   
+[17] bit_4.0.5         compiler_4.2.3    cli_3.6.0         rvest_1.0.3      
+[21] xml2_1.3.3        labeling_0.4.2    bookdown_0.34     sass_0.4.5       
+[25] scales_1.2.1      callr_3.7.3       systemfonts_1.0.4 digest_0.6.31    
+[29] rmarkdown_2.20    svglite_2.1.1     pkgconfig_2.0.3   htmltools_0.5.4  
+[33] sessioninfo_1.2.2 highr_0.10        fastmap_1.1.1     htmlwidgets_1.6.2
+[37] rlang_1.1.0       RMariaDB_1.2.2    rstudioapi_0.14   shiny_1.7.4.1    
+[41] farver_2.1.1      jquerylib_0.1.4   generics_0.1.3    jsonlite_1.8.7   
+[45] magrittr_2.0.3    Matrix_1.5-3      Rcpp_1.0.10       munsell_0.5.0    
+[49] fansi_1.0.4       lifecycle_1.0.3   stringi_1.7.12    yaml_2.3.7       
+[53] expint_0.1-8      pkgbuild_1.4.2    grid_4.2.3        promises_1.2.0.1 
+[57] crayon_1.5.2      lattice_0.20-45   miniUI_0.1.1.1    splines_4.2.3    
+[61] hms_1.1.2         ps_1.7.2          pillar_1.8.1      pkgload_1.3.2    
+[65] glue_1.6.2        evaluate_0.20     renv_1.0.3        remotes_2.4.2.1  
+[69] vctrs_0.6.0       tzdb_0.3.0        httpuv_1.6.11     gtable_0.3.1     
+[73] cachem_1.0.7      xfun_0.40         mime_0.12         xtable_1.8-4     
+[77] later_1.3.0       viridisLite_0.4.1 memoise_2.0.1     timechange_0.2.0 
+[81] ellipsis_0.3.2   </code></pre>
 <p>Este libro fue escrito con <a href="http://bookdown.org/">bookdown</a> usando <a href="http://www.rstudio.com/ide/">RStudio</a>.</p>
 <p>Esta versión fue escrita con:</p>
 <pre><code>Finding R package dependencies ... Done!</code></pre>
-<pre><code> setting  value                       
- version  R version 4.1.0 (2021-05-18)
- os       Windows 10 x64              
- system   x86_64, mingw32             
- ui       RTerm                       
- language (EN)                        
- collate  Spanish_Mexico.1252         
- ctype    Spanish_Mexico.1252         
- tz       America/Mexico_City         
- date     2021-11-09                  </code></pre>
+<pre><code> setting  value
+ version  R version 4.2.3 (2023-03-15 ucrt)
+ os       Windows 10 x64 (build 19043)
+ system   x86_64, mingw32
+ ui       RStudio
+ language (EN)
+ collate  Spanish_Mexico.utf8
+ ctype    Spanish_Mexico.utf8
+ tz       America/Mexico_City
+ date     2023-10-02
+ rstudio  2023.09.0+463 Desert Sunflower (desktop)
+ pandoc   3.1.1 @ C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/ (via rmarkdown)</code></pre>
 </div>
-<div id="licencia" class="section level3 unnumbered">
-<h3>Licencia</h3>
+<div id="licencia" class="section level3 unnumbered hasAnchor">
+<h3>Licencia<a href="index.html#licencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 <center>
 <i class="fab fa-creative-commons fa-2x"></i><i class="fab fa-creative-commons-by fa-2x"></i><i class="fab fa-creative-commons-sa fa-2x"></i>
@@ -418,7 +458,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

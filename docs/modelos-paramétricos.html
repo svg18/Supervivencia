@@ -5,23 +5,23 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 5 Modelos Paramétricos | Modelos de Supervivencia</title>
-  <meta name="description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
-  <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
+  <meta name="description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 5 Modelos Paramétricos | Modelos de Supervivencia" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
   
-  <meta property="og:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
-  <meta name="github-repo" content="CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
+  <meta property="og:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="github-repo" content="svg18/Supervivencia" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Capítulo 5 Modelos Paramétricos | Modelos de Supervivencia" />
   
-  <meta name="twitter:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="twitter:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo en la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
 
 <meta name="author" content="Sofía Villers Gómez" />
+<meta name="author" content="David Alberto Mateos Montes de Oca" />
 <meta name="author" content="Carlos Fernando Vásquez Guerra" />
 <meta name="author" content="Luis Angel Ramirez Teodoro" />
 
@@ -34,8 +34,8 @@
   
 <link rel="prev" href="par-poblacionales.html"/>
 <link rel="next" href="la-función-de-verosimilitud-con-censura-y-truncamiento.html"/>
-<script src="libs/header-attrs-2.6.4/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,9 +51,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
@@ -63,6 +63,32 @@
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -98,7 +124,10 @@
 <li class="chapter" data-level="1.4" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-izquierda"><i class="fa fa-check"></i><b>1.4</b> Censura por la Izquierda</a></li>
 <li class="chapter" data-level="1.5" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-intervalos"><i class="fa fa-check"></i><b>1.5</b> Censura por Intervalos</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="datos-truncados.html"><a href="datos-truncados.html"><i class="fa fa-check"></i><b>2</b> Datos Truncados</a></li>
+<li class="chapter" data-level="2" data-path="datos-truncados.html"><a href="datos-truncados.html"><i class="fa fa-check"></i><b>2</b> Datos Truncados</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="datos-truncados.html"><a href="datos-truncados.html#ejercicios"><i class="fa fa-check"></i><b>2.1</b> Ejercicios</a></li>
+</ul></li>
 <li class="part"><span><b>II Estudio paramétrico</b></span></li>
 <li class="chapter" data-level="3" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html"><i class="fa fa-check"></i><b>3</b> Funciones para el Análisis de Supervivencia</a>
 <ul>
@@ -140,6 +169,7 @@
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-6"><i class="fa fa-check"></i>Caso continuo</a></li>
 <li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-6"><i class="fa fa-check"></i>Caso discreto</a></li>
 </ul></li>
+<li class="chapter" data-level="4.5" data-path="par-poblacionales.html"><a href="par-poblacionales.html#ejercicios-1"><i class="fa fa-check"></i><b>4.5</b> Ejercicios</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html"><i class="fa fa-check"></i><b>5</b> Modelos Paramétricos</a>
 <ul>
@@ -163,6 +193,7 @@
 <li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-exponencial-1"><i class="fa fa-check"></i>Modelo Exponencial</a></li>
 <li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-weibull-1"><i class="fa fa-check"></i>Modelo Weibull</a></li>
 </ul></li>
+<li class="chapter" data-level="6.8" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#ejercicios-2"><i class="fa fa-check"></i><b>6.8</b> Ejercicios</a></li>
 </ul></li>
 <li class="part"><span><b>III Estudio no paramétrico</b></span></li>
 <li class="chapter" data-level="7" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><i class="fa fa-check"></i><b>7</b> Modelos No Paramétricos para la Función de Supervivencia</a>
@@ -230,17 +261,17 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="modelos-paramétricos" class="section level1" number="5">
-<h1><span class="header-section-number">Capítulo 5</span> Modelos Paramétricos</h1>
+<div id="modelos-paramétricos" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Capítulo 5</span> Modelos Paramétricos<a href="modelos-paramétricos.html#modelos-paramétricos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Existen varios modelos paramétricos que se emplean en el análisis de supervivencia, esto se debe a que pueden representar de manera adecuada el comportamiento de ciertos fenómenos. La motivación para usar un modelo en particular es, por lo general, empírica; o bien, con base en la información que proporcione algún modelo <strong>No paramétrico</strong>. Las familias paramétricas más importantes son: <em>Exponencial, Weibull, Log-Normal, Log-logística</em> y <em>Gamma</em>.</p>
-<div id="modelo-exponencial" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Modelo Exponencial</h2>
+<div id="modelo-exponencial" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Modelo Exponencial<a href="modelos-paramétricos.html#modelo-exponencial" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>El modelo exponencial es el más importante debido a su amplia aplicación, por ejemplo, puede emplearse en estudios para determinar el tiempo de vida útil de algunos artículos manufacturados. Este modelo juega un papel fundamental análogo a la <em>distribución normal</em> en la inferencia estadística tradicional.</p>
 <p><strong>Función de Densidad</strong></p>
 <p><span class="math display">\[
 f(t)=h(t)S(t)=\lambda exp(-\lambda t)=\lambda e^{-\lambda t}
 \]</span>
-Para esta distribución <span class="math inline">\(\lambda\)</span> es un parámetro que modifica la escala de la distribución. Este es comúnmente llamado <strong><em>tasa</em></strong> definido por <span class="math inline">\(1/s\)</span> donde <span class="math inline">\(s\)</span> es el verdadero parámetro de escala<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> de la distribución. Es muy común utilizar este parámetro en lugar del parámetro de escala ya que simplifica la expresión matemática.</p>
+Para esta distribución <span class="math inline">\(\lambda\)</span> es un parámetro que modifica la escala de la distribución. Este es comúnmente llamado <strong><em>tasa</em></strong> definido por <span class="math inline">\(1/s\)</span> donde <span class="math inline">\(s\)</span> es el verdadero parámetro de escala<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> de la distribución. Es muy común utilizar este parámetro en lugar del parámetro de escala ya que simplifica la expresión matemática.</p>
 <p><strong>Función de Supervivencia</strong></p>
 <p><span class="math display">\[
 S(t)=exp\left(-\int_0^{t}h(u)du\right)=exp\left(-\int_0^{t}\lambda du\right)=exp(-\lambda t)=e^{-\lambda t}
@@ -266,7 +297,7 @@ Var[T]=\mathbb{E}[T^2]-\mathbb{E}[T]^2=\frac{2}{\lambda^2}-\frac{1}{\lambda^2}=\
 \]</span></p>
 <p><strong>Gráficas</strong></p>
 <p>A continuación se muestran gráficas de una <span class="math inline">\(Exponencial\)</span> con <span class="math inline">\(\lambda=0.5\)</span></p>
-<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><strong>R</strong></p>
 <p>En el lenguaje de programación <code>R</code> se pueden obtener resultados de esta distribución como una muestra pseudo aleatoria y aproximaciones numéricas para la distribución y densidad de esta así como la obtención de los cuantiles.</p>
 <p>En general, el sufijo para esta distribución es <code>*exp</code>, de tal manera que se tienen las siguientes funciones mencionando la interpretación de sus resultados:</p>
@@ -278,9 +309,9 @@ Var[T]=\mathbb{E}[T^2]-\mathbb{E}[T]^2=\frac{2}{\lambda^2}-\frac{1}{\lambda^2}=\
 </ul>
 <p>Algo que hay que recordar es que al utilizar la función, por ejemplo, <code>rexp(n, r)</code> se respeta el orden de los parámetros por lo que <code>r</code> será el valor correspondiente a la tasa y no parámetro de escala es decir el valor <span class="math inline">\(r = \lambda\)</span>. Se menciona esta por que puede ser común que se confunda <code>r</code> con <span class="math inline">\(1/\lambda\)</span>, por lo que se recomienda tener precaución.</p>
 </div>
-<div id="modelo-weibull" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Modelo Weibull</h2>
-<p>El modelo Weibull es una generalización del modelo exponencial, se agrega un parámetro de forma<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> <span class="math inline">\(\gamma\)</span> y se mantiene el parámetro de escala <span class="math inline">\(\lambda\)</span>. Este modelo es uno de los más utilizados para tiempos de falla: tiene utilidad en la vida de algunos artículos manufacturados, así como en los tiempos de aparición de tumores en medicina.</p>
+<div id="modelo-weibull" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Modelo Weibull<a href="modelos-paramétricos.html#modelo-weibull" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El modelo Weibull es una generalización del modelo exponencial, se agrega un parámetro de forma<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> <span class="math inline">\(\gamma\)</span> y se mantiene el parámetro de escala <span class="math inline">\(\lambda\)</span>. Este modelo es uno de los más utilizados para tiempos de falla: tiene utilidad en la vida de algunos artículos manufacturados, así como en los tiempos de aparición de tumores en medicina.</p>
 <p><strong>Función de Densidad</strong>
 <span class="math display">\[
 f(t)=\lambda \gamma(\lambda t)^{\gamma-1}e^{-(\lambda t)^\gamma}=h(t)S(t)
@@ -309,9 +340,9 @@ Var[T]=\frac{1}{\lambda^2}\Gamma\left(\frac{2}{\gamma}+1\right)-\left(\frac{1}{\
 Debe resultar sencillo para el alumno demostrar las igualdades de la esperanza y varianza.</p>
 <p><strong>Gráficas</strong></p>
 <p>Las dos gráficas siguientes muestran curvas de <span class="math inline">\(f(t)\)</span> y <span class="math inline">\(h(t)\)</span> para el modelo Weibull con <span class="math inline">\(\lambda=1\)</span> y <span class="math inline">\(\gamma=2,4\)</span>:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>Y para el modelo Weibull con <span class="math inline">\(\lambda=1\)</span> y <span class="math inline">\(\gamma=0.5,1\)</span> se tienen las siguientes gráficas:</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Y para el modelo Weibull con <span class="math inline">\(\lambda=1\)</span> y <span class="math inline">\(\gamma=0.5,1\)</span> se tienen las siguientes gráficas:</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Como bien hemos dicho, si suponemos una función de riesgo monótona creciente ó decreciente la distribución Weibull puede ser generada. Concretamente, si <span class="math inline">\(\gamma&gt;1\)</span> entonces <span class="math inline">\(h(t)\)</span> es estrictamente creciente, si <span class="math inline">\(\gamma&lt;1\)</span> entonces <span class="math inline">\(h(t)\)</span> es estrictamente decreciente. Cuando <span class="math inline">\(\gamma=1\)</span> se tiene la distribución exponencial.</p>
 <p><strong>R</strong></p>
 <p>Para este caso el sufijo referente a esta distribución es <code>*weibull</code>, de tal manera que se tienen las siguientes funciones mencionando la interpretación de sus resultados:</p>
@@ -323,8 +354,8 @@ Debe resultar sencillo para el alumno demostrar las igualdades de la esperanza y
 </ul>
 <p>Así como en el caso de la exponencial y en todos los casos posteriores, se respeta el orden de los parámetros por lo que para aplicar los parámetros tal como se vieron en esta sección se puede utilizar esta función de la siguiente manera: <code>dweibull</code>(<span class="math inline">\(\gamma\)</span>, <span class="math inline">\(1/\lambda\)</span>) o sin importar el orden indicando de manera explicita que <code>shape</code> = <span class="math inline">\(\gamma\)</span> y <code>scale</code> = <span class="math inline">\(1/\lambda\)</span>. Esto último debido a que la función de densidad para este modelo en R esta considerada como <span class="math inline">\(f(x) = \frac{\gamma}{\lambda}(\frac{x}{\lambda})^{\gamma-1}e^{-(\frac{x}{\lambda})^\gamma}\)</span>.</p>
 </div>
-<div id="modelo-log-normal" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Modelo Log-Normal</h2>
+<div id="modelo-log-normal" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Modelo Log-Normal<a href="modelos-paramétricos.html#modelo-log-normal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>El modelo Log-Normal tiene estrecha relación con la distribución <em>Normal</em>. De hecho, el tiempo de supervivencia <span class="math inline">\(T\)</span> se dice que sigue una distribución Log-Normal, si <span class="math inline">\(Y=ln(T)\)</span> se distribuye <span class="math inline">\(N(\mu,\sigma^2)\)</span>.</p>
 <p>La distribución Log-Normal se ha utilizado como modelo en el tiempo de falla de aislantes eléctricos y en el tiempo de aparición de cáncer pulmonar. También se utiliza en poblaciones que son una mezcla de tiempos de vida cortos y largos. A pesar de esto, este modelo es criticado por ser decreciente para valores grandes de <span class="math inline">\(t\)</span>, lo cual parece inadecaudo en algunas situaciones.</p>
 <p><strong>Función de Densidad</strong></p>
@@ -361,7 +392,7 @@ Var[T]=exp(2\mu+2\sigma^2)-exp(2\mu+\sigma^2)
 <p>La demostración de las igualdades de media y varianza se dejan al alumno.</p>
 <p><strong>Gráficas</strong></p>
 <p>A continuación algunos ejemplos de las gráficas de <span class="math inline">\(f(t)\)</span> y <span class="math inline">\(h(t)\)</span> para la distribución Log-Normal:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><strong>R</strong></p>
 <p>Para esta distribución el sufijo respectivo será <code>*lnorm</code>, de tal manera que se tienen las siguientes funciones mencionando la interpretación de sus resultados:</p>
 <ul>
@@ -371,8 +402,8 @@ Var[T]=exp(2\mu+2\sigma^2)-exp(2\mu+\sigma^2)
 <li><code>qlnorm(p, meanlog = 0, sdlog = 1, lower.tail = TRUE, log.p = FALSE)</code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
 </ul>
 <p>En este caso, es evidente que <code>meanlog</code> correspondería al parámetro de escala <span class="math inline">\(\mu\)</span> y <code>sdlog</code> al parámetro de forma <span class="math inline">\(\sigma\)</span>. Finalmente se menciona que estos parámetros no se deben confundir explícitamente con los de una distribución normal.</p>
-<div id="ejemplo-6" class="section level4 unnumbered">
-<h4>Ejemplo</h4>
+<div id="ejemplo-6" class="section level4 unnumbered hasAnchor">
+<h4>Ejemplo<a href="modelos-paramétricos.html#ejemplo-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>El tiempo de muerte en días después de un trasplante de médula sigue una distribución <span class="math inline">\(log-normal\)</span> con <span class="math inline">\(\mu = 3.177, \sigma = 2.084\)</span>. Calcular lo siguiente</p>
 <ol style="list-style-type: decimal">
 <li>La media y la mediano tiempo de muerte</li>
@@ -392,8 +423,8 @@ Var[T]=exp(2\mu+2\sigma^2)-exp(2\mu+\sigma^2)
 </ol>
 </div>
 </div>
-<div id="modelo-log-logístico" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Modelo Log-Logístico</h2>
+<div id="modelo-log-logístico" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Modelo Log-Logístico<a href="modelos-paramétricos.html#modelo-log-logístico" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>El modelo Log-Logístico es derivado de la distribución <em>Logística</em>. Se dice que <span class="math inline">\(T\)</span> tiene distribución Log-Logística si <span class="math inline">\(Y=ln(T)\)</span> sigue una distribución Logística con parámetros <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma ^2\)</span>.</p>
 <p><strong>Función de Densidad</strong></p>
 <p><span class="math display">\[
@@ -411,7 +442,7 @@ h(t)=\frac{f(t)}{S(t)}=\frac{\alpha \lambda (\lambda t)^{\alpha-1}}{1+(\lambda t
 <p>La función de riesgo es monótona decreciente para <span class="math inline">\(\alpha \leq 1\)</span>, y para <span class="math inline">\(\alpha&gt; 1\)</span> la función de riesgo crece hasta alcanzar un máximo en <span class="math inline">\(t=(\frac{\alpha-1}{\lambda})^{\frac{1}{\alpha}}\)</span> y luego decrece a cero cuando <span class="math inline">\(t \rightarrow \infty\)</span>.</p>
 <p><strong>Gráficas</strong></p>
 <p>Algunos ejemplos de las gráficas de <span class="math inline">\(f(t)\)</span> y <span class="math inline">\(h(t)\)</span> para la distribución Log-Logística:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><strong>R</strong></p>
 <p>Para esta distribución se recomienda descargar y utilizar el paquete <code>actuar</code>, en la cual vienen un conjunto de funciones similares a las anteriores, de hecho el sufijo respectivo será <code>*llogis</code> y, de manera análoga a las anteriores funciones, se tiene lo siguiente:</p>
 <ul>
@@ -422,8 +453,8 @@ h(t)=\frac{f(t)}{S(t)}=\frac{\alpha \lambda (\lambda t)^{\alpha-1}}{1+(\lambda t
 </ul>
 <p>En este caso, como en la exponencial y la weibull, <code>rate</code> correspondería al parámetro <span class="math inline">\(\lambda\)</span> y <code>shape</code> al parámetro de forma <span class="math inline">\(\alpha\)</span>.</p>
 </div>
-<div id="modelo-gamma" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> Modelo Gamma</h2>
+<div id="modelo-gamma" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Modelo Gamma<a href="modelos-paramétricos.html#modelo-gamma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La distribución Gamma, que incluye a las distribuciones <em>exponencial</em> y <em>ji-cuadrada</em>, ha sido utilizada como un modelo para problemas de confiabilidad industrial, hepatogramas en adultos normales y en pacientes con cirrosis, en supervivencia de plaquetas, entre otros. Este modelo tiene dos parámetros: <span class="math inline">\(\beta\)</span> es el parámetro de forma y <span class="math inline">\(\lambda\)</span> es el parámetro que modifica de escala; estrictamente hablando <span class="math inline">\(\lambda\)</span> es la tasa: <span class="math inline">\(\lambda =\frac{1}{s}\)</span> donde <span class="math inline">\(s\)</span> sería el verdadero parámetro de escala.</p>
 <p><strong>Función de Densidad</strong></p>
 <p><span class="math inline">\(f(t)\)</span> está dada por:</p>
@@ -434,7 +465,7 @@ f(t)=\frac{\lambda^\beta}{\Gamma(\beta)}t^{\beta-1}exp(-\lambda t); \ \ \  \lamb
 <p><span class="math display">\[
 S(t)=1-Ig(\lambda t, \beta)
 \]</span></p>
-<p>donde<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>:</p>
+<p>donde<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>:</p>
 <p><span class="math display">\[
 Ig(t,\beta)=\frac{1}{\Gamma(\beta)}\int_0^{t}u^{\beta-1}e^{-u}du
 \]</span>
@@ -459,7 +490,7 @@ Var[T]=\frac{\beta}{\lambda^2}
 <p>Las demostraciones de las igualdades de la esperanza y varianza se quedan de ejercicio al alumno.</p>
 <p><strong>Gráficas</strong></p>
 <p>Se muestran ejemplos de las gráficas de <span class="math inline">\(f(t)\)</span> y <span class="math inline">\(h(t)\)</span> para el modelo Gamma:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><strong>R</strong></p>
 <p>Para esta distribución el sufijo respectivo será <code>*gamma</code>, de tal manera que se tienen las siguientes funciones mencionando la interpretación de sus resultados:</p>
 <ul>
@@ -470,8 +501,8 @@ Var[T]=\frac{\beta}{\lambda^2}
 </ul>
 <p>Como en el caso de la exponencial, se recomienda tener precaución ya que el parámetro <code>rate</code> es el que corresponde al parámetro <span class="math inline">\(\lambda\)</span> en este trabajo.</p>
 </div>
-<div id="modelo-gamma-generalizada" class="section level2" number="5.6">
-<h2><span class="header-section-number">5.6</span> Modelo Gamma Generalizada</h2>
+<div id="modelo-gamma-generalizada" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Modelo Gamma Generalizada<a href="modelos-paramétricos.html#modelo-gamma-generalizada" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Finalmente, se presenta el modelo Gamma Generalizada con dos parámetros de forma y un parámetro de que modifica la escala <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> y <span class="math inline">\(\lambda\)</span> respectivamente.</p>
 <p><strong>Función de Densidad</strong></p>
 <p><span class="math inline">\(f(t)\)</span> está dada por:</p>
@@ -498,8 +529,8 @@ S(t)=1-Ig((\lambda t)^\alpha, \beta)
 <li><code>qggamma(p, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)</code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
 </ul>
 <p>Para este caso, se tiene una parametrización de uso común en distintas fuentes. <code>a</code> = <span class="math inline">\(\frac{1}{\lambda}\)</span>, <code>b</code> = <span class="math inline">\(\alpha\)</span> y <code>k</code> = <span class="math inline">\(\beta\)</span>.</p>
-<div id="ejemplo-7" class="section level4 unnumbered">
-<h4>Ejemplo</h4>
+<div id="ejemplo-7" class="section level4 unnumbered hasAnchor">
+<h4>Ejemplo<a href="modelos-paramétricos.html#ejemplo-7" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>El tiempo de vida en meses de cierta especie de ratón sigue una distribución <span class="math inline">\(gamma(\beta = 3, \lambda = 0.2)\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li>Calcular la probabilidad de que un ratón sobreviva más de 18 meses.</li>
@@ -517,12 +548,18 @@ S(t)=1-Ig((\lambda t)^\alpha, \beta)
 </div>
 </div>
 </div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-klein2006survival" class="csl-entry">
+Klein, John P, and Melvin L Moeschberger. 2006. <em>Survival Analysis: Techniques for Censored and Truncated Data</em>. Second. Springer Science &amp; Business Media.
+</div>
+</div>
 <div class="footnotes">
 <hr />
-<ol start="4">
-<li id="fn4"><p>Un parámetro de escala modifica la escala o <em>dispersión</em> de la distribución ya sea que entre mayor sea este parámetro mayor dispersión se tendrá o se tenga el caso contrario como en una <em>log-logistica</em>. En el siguiente <a href="https://en.wikipedia.org/wiki/Scale_parameter">enlace</a> se puede encontrar mayor información sobre esto así como animaciones para un mejor entendimiento.<a href="modelos-paramétricos.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>Un parámetro de forma es aquel que no es de escala ni de localización o una función de estos, ya que su único propósito es modificar la forma de la distribución de manera distinta a estos anteriores, es decir que no sólo traslada o afecta la variabilidad de la misma.<a href="modelos-paramétricos.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>Esta función se llama <em>función gamma incompleta</em> y en algunas fuentes se puede encontrar esta en particular como <em><strong>lower incomplete gamma function</strong></em>. Cuando se tiene <span class="math inline">\(\int_x^{\infty}u^{\beta-1}e^{-u}du = \Gamma(x, \beta)\)</span> se le conoce como <em><strong>upper incomplete gamma function</strong></em>, la cual es una <a href="https://mathworld.wolfram.com/IncompleteGammaFunction.html">generalización</a> de la función gamma: <span class="math inline">\(\Gamma(x, 0) = \Gamma(x)\)</span>. Originalmente esta función no tiene el cociente que se esta utilizando en este caso, esto es un efecto de normalizar la función como se puede ver en el siguiente <a href="https://dlmf.nist.gov/8.2">enlace</a>. Algunas veces esta función es conocida directamente como función gamma incompleta como en <span class="citation">(Klein and Moeschberger <a href="#ref-klein2006survival" role="doc-biblioref">2006</a>)</span><a href="modelos-paramétricos.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<ol start="1">
+<li id="fn1"><p>Un parámetro de escala modifica la escala o <em>dispersión</em> de la distribución ya sea que entre mayor sea este parámetro mayor dispersión se tendrá o se tenga el caso contrario como en una <em>log-logistica</em>. En el siguiente <a href="https://en.wikipedia.org/wiki/Scale_parameter">enlace</a> se puede encontrar mayor información sobre esto así como animaciones para un mejor entendimiento.<a href="modelos-paramétricos.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Un parámetro de forma es aquel que no es de escala ni de localización o una función de estos, ya que su único propósito es modificar la forma de la distribución de manera distinta a estos anteriores, es decir que no sólo traslada o afecta la variabilidad de la misma.<a href="modelos-paramétricos.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Esta función se llama <em>función gamma incompleta</em> y en algunas fuentes se puede encontrar esta en particular como <em><strong>lower incomplete gamma function</strong></em>. Cuando se tiene <span class="math inline">\(\int_x^{\infty}u^{\beta-1}e^{-u}du = \Gamma(x, \beta)\)</span> se le conoce como <em><strong>upper incomplete gamma function</strong></em>, la cual es una <a href="https://mathworld.wolfram.com/IncompleteGammaFunction.html">generalización</a> de la función gamma: <span class="math inline">\(\Gamma(x, 0) = \Gamma(x)\)</span>. Originalmente esta función no tiene el cociente que se esta utilizando en este caso, esto es un efecto de normalizar la función como se puede ver en el siguiente <a href="https://dlmf.nist.gov/8.2">enlace</a>. Algunas veces esta función es conocida directamente como función gamma incompleta como en <span class="citation">(<a href="#ref-klein2006survival">Klein and Moeschberger 2006</a>)</span><a href="modelos-paramétricos.html#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -535,7 +572,6 @@ S(t)=1-Ig((\lambda t)^\alpha, \beta)
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -554,6 +590,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "github", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -574,6 +611,10 @@ gitbook.start({
 "text": null
 },
 "download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }
@@ -587,7 +628,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
